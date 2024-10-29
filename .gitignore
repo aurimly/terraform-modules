@@ -1,0 +1,9 @@
+# gitignore file for Terraform modules
+*.swp
+*.tfstate
+*.bak
+*.backup
+terraform.tfplan
+terraform.tfstate
+.terraform/
+.terragrunt-cache/
