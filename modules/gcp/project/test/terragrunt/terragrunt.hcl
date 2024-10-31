@@ -34,23 +34,21 @@ EOF
 
 inputs = {
   projects = {
-#    "${local.project1}" = {
-#      name = local.project1
-#      project_id = local.project1
-#      org_id = local.org_id
-#      deletion_policy = local.deletion_policy
-#      labels = {
-#        "env" = "test"
-#      }
-#    },
-#    "${local.project2}" = {
-#      name = local.project2
-#      project_id = local.project2
-#      org_id = local.org_id
-#      deletion_policy = local.deletion_policy
-#      labels = {
-#        "env" = "test"
-#      }
-#    },
+    "${local.project1}" = {
+      name = local.project1
+      org_id = local.org_id
+      deletion_policy = local.deletion_policy
+      labels = {
+        "env" = "test"
+      }
+    },
+    "${local.project2}" = {
+      name = local.project2
+      org_id = local.org_id
+      deletion_policy = local.deletion_policy
+      labels = {
+        "env" = "test"
+      }
+    },
   }
 }
