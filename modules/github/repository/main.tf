@@ -14,8 +14,9 @@ resource "github_repository" "repo" {
   description            = each.value.description
   visibility             = each.value.visibility
   topics                 = each.value.topics
-  has_issues             = each.value.has_issues
-  has_wiki               = each.value.has_wiki
+  has_issues            = each.value.has_issues
+  has_wiki              = each.value.has_wiki
+  has_projects          = each.value.has_projects
   delete_branch_on_merge = each.value.delete_branch_on_merge
   archived               = each.value.archived
   archive_on_destroy     = true

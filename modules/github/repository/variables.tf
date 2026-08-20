@@ -6,6 +6,7 @@ variable "repositories" {
     topics                 = optional(list(string), [])
     has_issues             = optional(bool, false)
     has_wiki               = optional(bool, false)
+    has_projects           = optional(bool, false)
     delete_branch_on_merge = optional(bool, true)
     archived               = optional(bool, false)
     branch_protection = optional(object({
