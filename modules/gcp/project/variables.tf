@@ -1,48 +1,13 @@
-# variables file
-variable "name" {
-  description = "The name of the project"
-  type        = string
-  default     = ""
-}
-
-variable "project_id" {
-  description = "The project ID"
-  type        = string
-  default     = ""
-}
-
-variable "org_id" {
-  description = "The organization ID"
-  type        = string
-  default     = ""
-}
-
-variable "folder_id" {
-  description = "The folder ID"
-  type        = string
-  default     = ""
-}
-
-variable "billing_account" {
-  description = "The billing account ID"
-  type        = string
-  default     = ""
-}
-
-variable "auto_create_network" {
-  description = "Auto create network"
-  type        = bool
-  default     = false
-}
-
-variable "labels" {
-  description = "The labels for the project"
-  type        = map(string)
-  default     = {}
-}
-
-variable "deletion_policy" {
-  description = "The deletion policy for the project"
-  type        = string
-  default     = "PREVENT"
+variable "projects" {
+  description = "Map of GCP projects keyed by an arbitrary identifier. Each entry creates one project. A project must have either org_id or folder_id set as its parent."
+  type = map(object({
+    name                = string
+    project_id          = string
+    org_id              = optional(string)
+    folder_id           = optional(string)
+    billing_account     = string
+    auto_create_network = optional(bool, false)
+    deletion_policy     = optional(string, "PREVENT")
+    labels              = optional(map(string), {})
+  }))
 }
