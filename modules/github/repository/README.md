@@ -22,6 +22,7 @@ The provider reads `GITHUB_TOKEN` (classic PAT with `repo` scope) and
 | `topics` | `list(string)` | `[]` | Repo topics. |
 | `has_issues` | `bool` | `false` | Issues enabled. |
 | `has_wiki` | `bool` | `false` | Wiki enabled. |
+| `has_projects` | `bool` | `false` | Projects enabled. |
 | `delete_branch_on_merge` | `bool` | `true` | Delete head branches on merge. |
 | `archived` | `bool` | `false` | Archive the repo. |
 | `branch_protection` | `object` | — | Optional branch protection. |
