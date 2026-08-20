@@ -1,59 +1,35 @@
-locals {
-  project1 = "aurimly-test-project-asasdfa1"
-  project2 = "aurimly-test-project-asasdfa2"
-  org_id = null
-  deletion_policy = "DELETE"
-}
-
 terraform {
-  source = "./empty/"
+  source = "../../"
 }
 
-generate "loop" {
-  path = "_loop.tf"
-  if_exists = "overwrite"
-  contents = <<EOF
-module "project" {
-  source = "git@me.github.com:aurimly/terraform-modules.git//modules/gcp/project"
-
-  for_each = var.projects
-
-  name = each.value.name
-  project_id = each.value.project_id
-  org_id = each.value.folder_id != "" ? null : each.value.org_id
-  folder_id = lookup(each.value, "folder_id", null)
-  auto_create_network = lookup(each.value, "auto_create_network", null)
-  deletion_policy = lookup(each.value, "deletion_policy", null)
-  labels = each.value.labels
-}
-
-variable "projects" {
-  type = any
-}
-EOF
-}
+# Example inputs (commented). billing_account is required by the module schema.
+# To validate against GCP, replace the inputs below with real values (needs
+# GCP creds). terragrunt validate with an empty map needs no creds.
+#
+# inputs = {
+#   projects = {
+#     "example-one" = {
+#       name            = "example-one"
+#       project_id      = "example-one-1234"
+#       org_id          = "123456789012"
+#       billing_account = "01AB23-CD45EF-67GH89"
+#       deletion_policy = "PREVENT"
+#       labels = {
+#         env = "test"
+#       }
+#     },
+#     "example-two" = {
+#       name            = "example-two"
+#       project_id      = "example-two-5678"
+#       folder_id       = "folders/9876543210"
+#       billing_account = "01AB23-CD45EF-67GH89"
+#       labels = {
+#         env = "prod"
+#       }
+#     },
+#   }
+# }
 
 inputs = {
-  projects = {
-#    "${local.project1}" = {
-#      name = local.project1
-#      project_id = local.project1
-#      org_id = local.org_id
-#      folder_id = null
-#      deletion_policy = local.deletion_policy
-#      labels = {
-#        "env" = "test"
-#      }
-#    },
-#    "${local.project2}" = {
-#      name = local.project2
-#      project_id = local.project2
-#      org_id = local.org_id
-#      folder_id = null
-#      deletion_policy = local.deletion_policy
-#      labels = {
-#        "env" = "test"
-#      }
-#    },
-  }
+  projects = {}
 }
