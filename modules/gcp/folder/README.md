@@ -15,7 +15,7 @@ parent folder.
 |---|---|---|---|
 | `display_name` | `string` | — | Folder display name; must be unique among sibling folders. Validated client-side: ≤30 chars, starts/ends with a letter or number, contains only letters, numbers, spaces, hyphens, underscores. |
 | `parent` | `string` | — | Parent resource: `organizations/{org_id}` or `folders/{folder_id}`. Format validated. |
-| `tags` | `map(string)` | `{}` | Resource manager tags. Keys are `tagKeys/{tag_key_id}`, values `tagValues/{tag_value_id}` (format validated). Immutable upstream — changing tags forces folder replacement. |
+| `tags` | `map(string)` | `{}` | Resource manager tags, namespaced form `"{parent_id}/{tag_key_short_name}" = "{tag_value_short_name}"`, the parent being the org or project where the tag key is defined. Immutable upstream — changing tags forces folder replacement. |
 | `deletion_protection` | `bool` | `true` | Prevents Terraform from destroying **or recreating** the folder. Combined with tags being immutable upstream, a tags change under the default forces a blocked replacement. |
 | `deletion_policy` | `string` | `PREVENT` | One of `PREVENT`, `DELETE`, `ABANDON`. Stricter than the provider default (`DELETE`), matching this repo's project module. |
 
@@ -42,7 +42,7 @@ folders = {
     deletion_policy     = "DELETE"
     deletion_protection = false
     tags = {
-      "tagKeys/281472992016542" = "tagValues/281475003921481"
+      "123456789012/env" = "prod"
     }
   }
 }
@@ -61,6 +61,14 @@ folders = {
   Terraform delete a folder, set `deletion_policy = "DELETE"` and
   `deletion_protection = false`. `ABANDON` removes the folder from state
   without touching it in GCP and bypasses `deletion_protection` entirely.
+- Tags use the namespaced form `"{parent_id}/{tag_key_short_name}" =
+  "{tag_value_short_name}"` — parent being the org or project where the tag
+  key is defined — matching the provider's own examples and the Resource
+  Manager v3 API reference. The provider's argument description instead
+  mentions a `tagKeys/{id}` / `tagValues/{id}` form, which contradicts its
+  examples and tests; no client-side format validation is applied here. Tags
+  are create-time only and never read back; changing them forces folder
+  replacement (see the deletion-guards note above).
 - Tag bindings may linger for a while after a folder is scheduled for
   deletion; don't recreate same-named tag bindings immediately.
 - Nested folders are supported by referencing this module's own output as

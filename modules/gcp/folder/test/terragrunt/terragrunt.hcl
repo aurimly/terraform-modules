@@ -18,7 +18,7 @@ terraform {
 #       deletion_protection = false
 #       deletion_policy     = "DELETE"
 #       tags = {
-#         "tagKeys/281472992016542" = "tagValues/281475003921481"
+#         "123456789012/env" = "prod"
 #       }
 #     },
 #   }
