@@ -1,0 +1,71 @@
+# gcp/folder
+
+Map-keyed module for Google Cloud folders under an organization or a
+parent folder.
+
+## Inputs
+
+| Name | Type | Default | Description |
+|---|---|---|---|
+| `folders` | `map(object)` | — | Map of folders keyed by an arbitrary unique ID. |
+
+### `folders` object
+
+| Attribute | Type | Default | Description |
+|---|---|---|---|
+| `display_name` | `string` | — | Folder display name; must be unique among sibling folders. Validated client-side: ≤30 chars, starts/ends with a letter or number, contains only letters, numbers, spaces, hyphens, underscores. |
+| `parent` | `string` | — | Parent resource: `organizations/{org_id}` or `folders/{folder_id}`. Format validated. |
+| `tags` | `map(string)` | `{}` | Resource manager tags. Keys are `tagKeys/{tag_key_id}`, values `tagValues/{tag_value_id}` (format validated). Immutable upstream — changing tags forces folder replacement. |
+| `deletion_protection` | `bool` | `true` | Prevents Terraform from destroying **or recreating** the folder. Combined with tags being immutable upstream, a tags change under the default forces a blocked replacement. |
+| `deletion_policy` | `string` | `PREVENT` | One of `PREVENT`, `DELETE`, `ABANDON`. Stricter than the provider default (`DELETE`), matching this repo's project module. |
+
+## Outputs
+
+`folders` — map of folder key => object:
+
+| Attribute | Description |
+|---|---|
+| `name` | Full resource name (`folders/<id>`); usable directly as the `parent` of another folder entry or a project. |
+| `folder_id` | Bare numeric ID without the prefix. |
+
+## Example
+
+```hcl
+folders = {
+  "team-a" = {
+    display_name = "Team A"
+    parent       = "organizations/123456789012"
+  }
+  "team-a-prod" = {
+    display_name        = "prod"
+    parent              = "folders/987654321098"
+    deletion_policy     = "DELETE"
+    deletion_protection = false
+    tags = {
+      "tagKeys/281472992016542" = "tagValues/281475003921481"
+    }
+  }
+}
+```
+
+## Notes
+
+- Keys are arbitrary unique identifiers, not folder names. Display names
+  only need to be unique within the same parent, so the key disambiguates
+  siblings with shared naming across branches (e.g. `prod`, `npd-prod`).
+- The display_name validation mirrors the GCP API rule using Unicode
+  letter/number classes, so non-ASCII names (e.g. `Ürünler`) pass.
+- Deletion guards run in order: `deletion_policy` first, then
+  `deletion_protection`. With the defaults (`PREVENT` + `true`) destroy is
+  blocked outright, and so is any change that forces recreation. To let
+  Terraform delete a folder, set `deletion_policy = "DELETE"` and
+  `deletion_protection = false`. `ABANDON` removes the folder from state
+  without touching it in GCP and bypasses `deletion_protection` entirely.
+- Tag bindings may linger for a while after a folder is scheduled for
+  deletion; don't recreate same-named tag bindings immediately.
+- Nested folders are supported by referencing this module's own output as
+  the parent of a dependent unit (Terragrunt `dependency`).
+
+## Import
+
+`google_folder` ← `folders/{folder_id}` or bare `{folder_id}`
