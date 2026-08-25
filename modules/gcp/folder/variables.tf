@@ -22,9 +22,4 @@ variable "folders" {
     condition     = alltrue([for f in var.folders : contains(["DELETE", "ABANDON", "PREVENT"], f.deletion_policy)])
     error_message = "deletion_policy must be one of DELETE, ABANDON or PREVENT (case-sensitive)."
   }
-
-  validation {
-    condition     = alltrue([for f in var.folders : alltrue([for key, val in f.tags : can(regex("^tagKeys/[0-9]+$", key)) && can(regex("^tagValues/[0-9]+$", val))])])
-    error_message = "tags keys must be \"tagKeys/<tag_key_id>\" and values \"tagValues/<tag_value_id>\"."
-  }
 }

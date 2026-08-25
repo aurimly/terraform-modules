@@ -10,6 +10,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/cloudflare/dns-records` | Cloudflare DNS records in a single zone. |
 | `modules/cloudflare/worker-domains` | Cloudflare Workers custom domains. |
 | `modules/github/repository` | GitHub repository settings and branch protection. |
+| `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/project` | Google Cloud projects. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
