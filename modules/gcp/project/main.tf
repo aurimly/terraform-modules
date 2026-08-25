@@ -9,4 +9,5 @@ resource "google_project" "project" {
   auto_create_network = each.value.auto_create_network
   deletion_policy     = each.value.deletion_policy
   labels              = each.value.labels
+  tags                = each.value.tags
 }
