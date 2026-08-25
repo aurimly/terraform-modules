@@ -26,6 +26,9 @@ terraform {
 #       labels = {
 #         env = "prod"
 #       }
+#       tags = {
+#         "123456789012/env" = "prod"
+#       }
 #     },
 #   }
 # }
