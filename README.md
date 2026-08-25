@@ -1,6 +1,6 @@
 # Terraform Modules
 
-Reusable OpenTofu/Terraform modules. See `AGENTS.md` for conventions.
+Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](https://xtralinux.com).
 
 ## Modules
 
@@ -13,3 +13,9 @@ Reusable OpenTofu/Terraform modules. See `AGENTS.md` for conventions.
 | `modules/gcp/project` | Google Cloud projects. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
+
+## Support
+
+These modules are open source and free to use. For help architecting or
+managing Terraform infrastructure at scale, [xtralinux.com](https://xtralinux.com)
+offers consulting and managed IaC — [get in touch](https://xtralinux.com).
