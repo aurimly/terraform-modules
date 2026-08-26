@@ -72,7 +72,9 @@ projects = {
   parentless project; this module does not. `org_id` is sent to the API as-is
   (no prefix stripping), so pass the bare numeric ID; `folder_id` accepts both
   the bare ID and `folders/<id>` (the folder module's `name` output and
-  `folder_id` output respectively).
+  `folder_id` output respectively). Changing the parent on an existing project
+  does not replace it — the provider migrates the project to the newly
+  specified organization or folder.
 - `billing_account` is required here even though the provider marks it
   optional — a platform guardrail. The `XXXXXX-XXXXXX-XXXXXX` format is
   inferred from Google's examples (no formal regex is documented; the provider

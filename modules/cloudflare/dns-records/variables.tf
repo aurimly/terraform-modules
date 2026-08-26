@@ -20,4 +20,9 @@ variable "records" {
       value = string
     }))
   }))
+
+  validation {
+    condition     = alltrue([for r in var.records : (r.content == null) != (r.data == null)])
+    error_message = "each record must set exactly one of content or data."
+  }
 }

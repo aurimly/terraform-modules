@@ -18,7 +18,7 @@ The provider reads `GITHUB_TOKEN` (classic PAT with `repo` scope) and
 | Attribute | Type | Default | Description |
 |---|---|---|---|
 | `description` | `string` | `""` | Repo description. |
-| `visibility` | `string` | `"private"` | `"public"` or `"private"`. |
+| `visibility` | `string` | `"private"` | `"public"`, `"private"` or `"internal"`. |
 | `topics` | `list(string)` | `[]` | Repo topics. |
 | `has_issues` | `bool` | `false` | Issues enabled. |
 | `has_wiki` | `bool` | `false` | Wiki enabled. |
@@ -37,8 +37,14 @@ The provider reads `GITHUB_TOKEN` (classic PAT with `repo` scope) and
 | `required_status_checks` | `object` | `{}` | Status check requirements. |
 | `allows_force_pushes` | `bool` | `false` | Allow force pushes. |
 
-`default_branch` is **not** settable (deprecated in v6); new repos inherit
-GitHub's `main` default. It is exported as an output.
+`default_branch` is **not** settable (deprecated in v6); new repos get the
+account's configured default branch name (GitHub's own default is `main`).
+It is exported as an output. Note the `branch` attribute above defaults to
+`"main"` — set it explicitly if the account default differs, otherwise
+protection targets a nonexistent branch.
+
+`required_approving_review_count` is validated to 0-6 (the GitHub API
+rejects values above 6).
 
 ## Safe destroy
 
