@@ -34,10 +34,10 @@ variable "mode" {
 }
 
 variable "members" {
-  description = "Map of IAM members keyed by an arbitrary identifier. Each entry creates one google_organization_iam_member. Only used when mode = \"member\"."
+  description = "Map of IAM grants keyed by an arbitrary identifier. Each entry grants all roles to one member, creating one google_organization_iam_member per role; a condition applies to all of the entry's roles. Only used when mode = \"member\"."
   type = map(object({
-    role   = string
     member = string
+    roles  = list(string)
     condition = optional(object({
       title       = string
       description = optional(string)
@@ -49,17 +49,35 @@ variable "members" {
   validation {
     condition = alltrue([
       for m in var.members :
+      length(m.roles) > 0
+    ])
+    error_message = "Each members entry needs at least one role."
+  }
+
+  validation {
+    condition = alltrue([
+      for m in var.members :
+      length(distinct(m.roles)) == length(m.roles)
+    ])
+    error_message = "roles must not repeat within a members entry."
+  }
+
+  validation {
+    condition = alltrue([
+      for m in var.members :
       m.member == "allUsers" || m.member == "allAuthenticatedUsers" || can(regex("^(user|serviceAccount|group|domain|deleted:(user|serviceAccount|group)):.+$", m.member))
     ])
     error_message = "member must be \"allUsers\", \"allAuthenticatedUsers\", \"user|serviceAccount|group|domain:<id>\" or \"deleted:user|serviceAccount|group:<id>\"."
   }
 
   validation {
-    condition = alltrue([
-      for m in var.members :
-      can(regex("^roles/.+", m.role)) || can(regex(format("^organizations/%s/roles/.+", var.organization_id), m.role))
-    ])
-    error_message = "role must be a predefined role (\"roles/...\") or a custom role (\"organizations/<organization_id>/roles/<role_id>\")."
+    condition = alltrue(flatten([
+      for m in var.members : [
+        for role in m.roles :
+        can(regex("^roles/.+", role)) || can(regex(format("^organizations/%s/roles/.+", var.organization_id), role))
+      ]
+    ]))
+    error_message = "roles must be predefined roles (\"roles/...\") or custom roles (\"organizations/<organization_id>/roles/<role_id>\")."
   }
 
   validation {

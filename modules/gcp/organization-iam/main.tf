@@ -1,5 +1,20 @@
+locals {
+  member_grants = {
+    for g in flatten([
+      for key, entry in var.members : [
+        for role in entry.roles : {
+          key       = key
+          role      = role
+          member    = entry.member
+          condition = entry.condition
+        }
+      ]
+    ]) : g.condition != null ? "${g.key}/${g.role}/${g.condition.title}" : "${g.key}/${g.role}" => g
+  }
+}
+
 resource "google_organization_iam_member" "member" {
-  for_each = var.mode == "member" ? var.members : {}
+  for_each = var.mode == "member" ? local.member_grants : {}
 
   org_id = var.organization_id
   role   = each.value.role
