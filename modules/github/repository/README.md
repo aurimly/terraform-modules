@@ -37,10 +37,10 @@ The provider reads `GITHUB_TOKEN` (classic PAT with `repo` scope) and
 | `required_status_checks` | `object` | `{}` | Status check requirements. |
 | `allows_force_pushes` | `bool` | `false` | Allow force pushes. |
 
-`default_branch` is **not** settable (deprecated in v6); new repos get the
-account's configured default branch name (GitHub's own default is `main`).
-It is exported as an output. Note the `branch` attribute above defaults to
-`"main"` — set it explicitly if the account default differs, otherwise
+`default_branch` is **not** settable (deprecated in v6) and **not** exported
+as an output; new repos get the account's configured default branch name
+(GitHub's own default is `main`). Note the `branch` attribute above defaults
+to `"main"` — set it explicitly if the account default differs, otherwise
 protection targets a nonexistent branch.
 
 `required_approving_review_count` is validated to 0-6 (the GitHub API
@@ -56,8 +56,8 @@ state.
 
 ## Outputs
 
-`repo_full_names`, `repo_ids` (node ID), `repo_names`, `default_branch`,
-`ssh_clone_urls`, `html_urls` — all keyed by repo key.
+`repo_full_names`, `repo_ids` (node ID), `repo_names`, `ssh_clone_urls`,
+`html_urls` — all keyed by repo key.
 
 ## Import
 

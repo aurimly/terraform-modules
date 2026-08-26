@@ -13,11 +13,6 @@ output "repo_names" {
   value       = { for k, r in github_repository.repo : k => r.name }
 }
 
-output "default_branch" {
-  description = "Map of repo key => default branch (computed; the input does not set it)."
-  value       = { for k, r in github_repository.repo : k => r.default_branch }
-}
-
 output "ssh_clone_urls" {
   description = "Map of repo key => SSH clone URL."
   value       = { for k, r in github_repository.repo : k => r.ssh_clone_url }
