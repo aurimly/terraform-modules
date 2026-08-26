@@ -10,8 +10,8 @@ terraform {
 #   organization_id = "123456789012"
 #   members = {
 #     "viewer" = {
-#       role   = "roles/viewer"
 #       member = "group:platform@example.com"
+#       roles  = ["roles/viewer"]
 #     }
 #   }
 #   audit_configs = {

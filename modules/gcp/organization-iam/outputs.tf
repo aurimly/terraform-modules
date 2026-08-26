@@ -1,5 +1,5 @@
 output "members" {
-  description = "Map of member key => object with org_id, role, member and etag. Empty unless mode = \"member\"."
+  description = "Map of \"<entry key>/<role>\" (with the condition title appended when conditional, \"<entry key>/<role>/<condition title>\") => object with org_id, role, member and etag, one entry per granted role. Empty unless mode = \"member\"."
   value = { for k, m in google_organization_iam_member.member : k => {
     org_id = m.org_id
     role   = m.role

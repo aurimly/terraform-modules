@@ -11,14 +11,15 @@ non-authoritative), binding (authoritative per role) or policy
 |---|---|---|---|
 | `organization_id` | `string` | — | Bare numeric organization ID (e.g. `"123456789012"`). |
 | `mode` | `string` | `"member"` | One of `"member"`, `"binding"`, `"policy"`. Selects which resource family is created. |
-| `members` | `map(object)` | `{}` | IAM members, one resource each. Only used when `mode = "member"`. |
+| `members` | `map(object)` | `{}` | IAM grants, one resource per entry role. Only used when `mode = "member"`. |
 | `bindings` | `map(object)` | `{}` | IAM bindings, one resource each. Only used when `mode = "binding"`. |
 | `policy_data` | `string` | `null` | JSON-encoded IAM policy, one resource. Only used when `mode = "policy"`. |
 | `audit_configs` | `map(object)` | `{}` | Audit log configurations, one resource per service. |
 | `audit_config_enabled` | `bool` | `true` | Master toggle for the audit config resources. When false, `audit_configs` must be empty. |
 
 Plan-time validation: only the input matching `mode` may be set (the others
-must be empty/null), members are checked against the
+must be empty/null), each members entry needs at least one role and must not
+repeat a role within the entry, members are checked against the
 `user|serviceAccount|group|domain:<id>` (plus `deleted:user|serviceAccount|group:<id>`)
 / `allUsers` / `allAuthenticatedUsers` formats, roles must be `roles/...` or
 custom `organizations/<organization_id>/roles/...`, bindings must not repeat
@@ -28,9 +29,9 @@ a role and audit configs must not repeat a service.
 
 | Attribute | Type | Default | Description |
 |---|---|---|---|
-| `role` | `string` | — | Role to grant. |
-| `member` | `string` | — | Identity to grant the role to. |
-| `condition` | `object` | `null` | Optional IAM condition. |
+| `member` | `string` | — | Identity to grant the roles to. |
+| `roles` | `list(string)` | — | Roles to grant; at least one, no repeats within the entry. |
+| `condition` | `object` | `null` | Optional IAM condition, applied to all of the entry's roles. |
 
 ### `bindings` object
 
@@ -66,30 +67,29 @@ a role and audit configs must not repeat a service.
 
 | Name | Description |
 |---|---|
-| `members` | Map of member key => `{ org_id, role, member, etag }`. Empty unless `mode = "member"`. |
+| `members` | Map of `"<entry key>/<role>"` (conditional grants append `"/<condition title>"`) => `{ org_id, role, member, etag }`, one entry per granted role. Empty unless `mode = "member"`. |
 | `bindings` | Map of binding key => `{ org_id, role, members, etag }`. Empty unless `mode = "binding"`. |
 | `policy` | `{ org_id, etag }` of the organization policy, or `null` unless `mode = "policy"`. |
 | `audit_configs` | Map of audit config key => `{ org_id, service, etag }`. Empty when `audit_config_enabled = false`. |
 
 ## Example
 
-Member mode (default) with two roles for one identity plus audit logging:
+Member mode (default) with multiple roles for one identity plus audit logging:
 
 ```hcl
 organization_id = "123456789012"
 
 members = {
-  "data-eng-viewer" = {
-    role   = "roles/bigquery.dataViewer"
+  "data-eng" = {
     member = "group:data-eng@example.com"
-  }
-  "data-eng-compute" = {
-    role   = "roles/compute.viewer"
-    member = "group:data-eng@example.com"
+    roles = [
+      "roles/bigquery.dataViewer",
+      "roles/compute.viewer",
+    ]
   }
   "ops-expiring-admin" = {
-    role   = "roles/resourcemanager.projectIamAdmin"
     member = "user:ops@example.com"
+    roles  = ["roles/resourcemanager.projectIamAdmin"]
     condition = {
       title       = "expires_after_2026_12_31"
       description = "Expiring at midnight of 2026-12-31"
@@ -167,15 +167,28 @@ audit_config_enabled = false
   replace it.
 - Keys are arbitrary unique identifiers, not resource names — e.g. several
   member entries can share the same member or role.
+- One members entry's condition applies to all of its roles. A member needing
+  different conditions per role gets one entry per condition, keyed
+  arbitrarily.
+- Each members entry expands to one resource per role, so the `members`
+  output is keyed `"<entry key>/<role>"` (with the condition title appended
+  when conditional) rather than by the input map keys — a deliberate
+  deviation from the repo-wide "outputs keyed identically to inputs"
+  convention.
+- Two entries granting the same member the same role with the same condition
+  create two resources for one grant — keep grants distinct.
 - The runner needs `roles/resourcemanager.organizationAdmin` or equivalent
   on the organization.
 
 ## Import
 
-- Member: `terraform import google_organization_iam_member.member["<key>"] "<org_id> <role> <member>"`
+- Member: `terraform import google_organization_iam_member.member["<entry key>/<role>"] "<org_id> <role> <member>"`
+- Conditional member: the import ID carries four components
+  `"<org_id> <role> <member> <condition title>"` and the address key carries
+  the title too: `member["<entry key>/<role>/<condition title>"]`.
 - Binding: `terraform import google_organization_iam_binding.binding["<key>"] "<org_id> <role>"`
-- Conditional binding/member: append the condition title as a final
-  space-delimited component, e.g. `"<org_id> <role> condition-title"`.
+- Conditional binding: append the condition title as a final
+  space-delimited component, e.g. `"<org_id> <role> <condition-title>"`.
 - Policy: `terraform import google_organization_iam_policy.policy[0] "<org_id>"`
 - Audit config: `terraform import google_organization_iam_audit_config.audit_config["<key>"] "<org_id> <service>"`
 
