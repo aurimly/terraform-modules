@@ -12,6 +12,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/github/repository` | GitHub repository settings and branch protection. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/project` | Google Cloud projects. |
+| `modules/gcp/org-policy` | Google Cloud organization policies (org, folder, or project level). |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 
