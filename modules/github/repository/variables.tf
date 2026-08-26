@@ -1,5 +1,5 @@
 variable "repositories" {
-  description = "Map of GitHub repositories keyed by repo name. Each entry carries repo settings and optional branch protection. default_branch is not settable (deprecated) — new repos get the account's configured default branch name (GitHub's own default is 'main'); it is exported as an output."
+  description = "Map of GitHub repositories keyed by repo name. Each entry carries repo settings and optional branch protection. default_branch is not settable (deprecated in v6) — new repos get the account's configured default branch name (GitHub's own default is 'main')."
   type = map(object({
     description            = optional(string, "")
     visibility             = optional(string, "private")
