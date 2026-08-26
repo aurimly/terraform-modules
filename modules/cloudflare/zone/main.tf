@@ -14,6 +14,13 @@ resource "cloudflare_zone" "zone" {
   account = { id = coalesce(each.value.account_id, var.account_id) }
   type    = each.value.type
   paused  = each.value.paused
+
+  lifecycle {
+    precondition {
+      condition     = (each.value.account_id != null && each.value.account_id != "") || var.account_id != ""
+      error_message = "zone \"${each.key}\" must set account_id, or the module-level account_id fallback must be set."
+    }
+  }
 }
 
 locals {

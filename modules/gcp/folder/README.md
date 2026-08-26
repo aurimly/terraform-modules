@@ -73,6 +73,9 @@ folders = {
   deletion; don't recreate same-named tag bindings immediately.
 - Nested folders are supported by referencing this module's own output as
   the parent of a dependent unit (Terragrunt `dependency`).
+- The runner creating folders must hold `roles/resourcemanager.folderCreator`
+  on the parent organization — mirroring the `roles/billing.user` prerequisite
+  documented in the `gcp/project` module.
 
 ## Import
 

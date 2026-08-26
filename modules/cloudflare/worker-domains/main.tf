@@ -15,4 +15,11 @@ resource "cloudflare_workers_custom_domain" "domain" {
   service    = each.value.service
   zone_id    = coalesce(each.value.zone_id, var.zone_id)
   zone_name  = each.value.zone_name
+
+  lifecycle {
+    precondition {
+      condition     = (each.value.zone_id != null && each.value.zone_id != "") || var.zone_id != ""
+      error_message = "domain \"${each.key}\" must set zone_id, or the module-level zone_id fallback must be set."
+    }
+  }
 }
