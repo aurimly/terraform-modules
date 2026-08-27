@@ -11,6 +11,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/cloudflare/worker-domains` | Cloudflare Workers custom domains. |
 | `modules/github/repository` | GitHub repository settings and branch protection. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
+| `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
 | `modules/gcp/org-policy` | Google Cloud organization policies (org, folder, or project level). |
 | `modules/gcp/organization-iam` | Google Cloud organization IAM: members, bindings, policy, and audit configs. |
