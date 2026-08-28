@@ -177,7 +177,11 @@ policies = {
   condition out-of-band makes Terraform see a different resource and
   replace it.
 - Keys are arbitrary unique identifiers — several entries can grant the same
-  role or member. One members entry's condition applies to all of its roles;
+  role or member. Keep keys free of `/`: member grants are keyed
+  `"<entry key>/<role>"` (plus `"/<condition title>"` when conditional), and a
+  `/` inside an entry key could collide with another entry's key/role pair —
+  surfacing as a duplicate-key plan error. One members entry's condition
+  applies to all of its roles;
   a member needing different conditions per role gets one entry per
   condition.
 - Each members entry expands to one resource per role, so the `members`

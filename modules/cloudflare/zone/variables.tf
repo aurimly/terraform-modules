@@ -5,11 +5,21 @@ variable "account_id" {
 }
 
 variable "zones" {
-  description = "Map of Cloudflare zones keyed by zone name. Each entry may carry its own account_id, the zone type, a paused flag, and a map of zone settings (setting_id => value)."
+  description = "Map of Cloudflare zones keyed by zone name. Each entry may carry its own account_id, the zone type, a paused flag, a map of zone settings (setting_id => string value) and a map of typed zone settings (setting_id => JSON-encoded value)."
   type = map(object({
-    account_id = optional(string)
-    type       = optional(string, "full")
-    paused     = optional(bool, false)
-    settings   = optional(map(string), {})
+    account_id     = optional(string)
+    type           = optional(string, "full")
+    paused         = optional(bool, false)
+    settings       = optional(map(string), {})
+    typed_settings = optional(map(string), {})
   }))
+
+  validation {
+    condition = alltrue(flatten([
+      for z in var.zones : [
+        for v in z.typed_settings : can(jsondecode(v))
+      ]
+    ]))
+    error_message = "typed_settings values must be JSON-encoded (build them with jsonencode)."
+  }
 }
