@@ -16,6 +16,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/project-iam` | Google Cloud project IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/org-policy` | Google Cloud organization policies (org, folder, or project level). |
 | `modules/gcp/organization-iam` | Google Cloud organization IAM: members, bindings, policy, and audit configs. |
+| `modules/gcp/service-account` | Google Cloud service accounts. |
+| `modules/gcp/service-account-iam` | Google Cloud service account IAM: members, bindings, and policies. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 
