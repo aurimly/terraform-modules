@@ -9,7 +9,7 @@ variable "folders" {
 
   validation {
     condition     = alltrue([for f in var.folders : can(regex("^[a-zA-ZäüöÄÜÖ0-9]( ?[a-zA-ZäüöÄÜÖß0-9_+&-]){0,39}$", f.name))])
-    error_message = "name must be at most 40 characters, start with a letter or number (umlauts allowed), and contain only letters, numbers, umlauts, ß, single spaces, underscores, plus, ampersand and hyphens."
+    error_message = "name must match the STACKIT API rule: start with a letter or number (umlauts allowed), and contain only letters, numbers, umlauts, ß, single spaces, underscores, plus, ampersand and hyphens."
   }
 
   validation {

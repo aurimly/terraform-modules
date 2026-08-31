@@ -13,7 +13,7 @@ organization or a parent folder.
 
 | Attribute | Type | Default | Description |
 |---|---|---|---|
-| `name` | `string` | — | Folder name; validated client-side against the API rule: ≤40 chars, starts with a letter or number (umlauts allowed), contains only letters, numbers, umlauts, `ß`, single spaces, underscores, `+`, `&`, hyphens. No dots. |
+| `name` | `string` | — | Folder name; validated client-side against the API rule: starts with a letter or number (umlauts allowed), contains only letters, numbers, umlauts, `ß`, single spaces, underscores, `+`, `&`, hyphens. No dots. |
 | `owner_email` | `string` | — | Email of the folder owner, assigned as the folder's owner member at creation. Must be a user account, not a service account. Create-only: changing it later shows a one-time no-op plan diff (state syncs on apply) but does not change the owner upstream. |
 | `parent_container_id` | `string` | — | Parent container: the organization's or parent folder's user-friendly container ID or UUID. |
 | `labels` | `map(string)` | `{}` | Labels attached to the folder. Keys must match `[A-ZÄÜÖa-zäüöß0-9_-]{1,64}`, values `^$|[A-ZÄÜÖa-zäüöß0-9_-]{1,64}` (empty allowed), at most 100 per folder. Organization policies may enforce additional label restrictions. |
