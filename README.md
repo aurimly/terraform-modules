@@ -20,6 +20,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/service-account-iam` | Google Cloud service account IAM: members, bindings, and policies. |
 | `modules/stackit/folder` | STACKIT Resource Manager folders under an organization or parent folder. |
 | `modules/stackit/project` | STACKIT Resource Manager projects under an organization or folder. |
+| `modules/stackit/organization_role_assignment` | STACKIT authorization role assignments on an organization. |
+| `modules/stackit/folder_role_assignment` | STACKIT authorization role assignments on a folder. |
+| `modules/stackit/project_role_assignment` | STACKIT authorization role assignments on a project. |
+| `modules/stackit/service_account_role_assignment` | STACKIT authorization 'Act-As' role assignments on a service account. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 
