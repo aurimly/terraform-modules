@@ -18,6 +18,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/organization-iam` | Google Cloud organization IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/service-account` | Google Cloud service accounts. |
 | `modules/gcp/service-account-iam` | Google Cloud service account IAM: members, bindings, and policies. |
+| `modules/gcp/subnet` | Google Cloud subnetworks in a VPC network. |
+| `modules/gcp/vpc` | Google Cloud VPC networks. |
 | `modules/stackit/folder` | STACKIT Resource Manager folders under an organization or parent folder. |
 | `modules/stackit/project` | STACKIT Resource Manager projects under an organization or folder. |
 | `modules/stackit/organization_role_assignment` | STACKIT authorization role assignments on an organization. |
