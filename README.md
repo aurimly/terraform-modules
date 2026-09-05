@@ -24,6 +24,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/folder_role_assignment` | STACKIT authorization role assignments on a folder. |
 | `modules/stackit/project_role_assignment` | STACKIT authorization role assignments on a project. |
 | `modules/stackit/service_account_role_assignment` | STACKIT authorization 'Act-As' role assignments on a service account. |
+| `modules/stackit/service_account` | STACKIT service accounts in a project (email and service account ID). |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 

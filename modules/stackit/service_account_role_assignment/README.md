@@ -22,7 +22,7 @@ may change or the resources may be removed in future provider releases.
 
 | Attribute | Type | Default | Description |
 |---|---|---|---|
-| `resource_id` | `string` | — | The service account UUID the role is assigned to (the provider UUID-validates this attribute) — the `service_account_id` output of the upstream `stackit_service_account` resource (this repo has no `stackit/service-account` module). |
+| `resource_id` | `string` | — | The service account UUID the role is assigned to (the provider UUID-validates this attribute) — the `service_accounts["<key>"].service_account_id` output of the `stackit/service_account` module. |
 | `role` | `string` | — | Role name, e.g. `user`. Available roles are queryable per resource: `stackit curl https://authorization.api.stackit.cloud/v2/{resourceType}/{resourceId}/roles`. |
 | `subject` | `string` | — | The identity that may act as the target service account: user email, service account email, or client name; all letters lowercase (provider-enforced). |
 
@@ -71,9 +71,9 @@ role_assignments = {
   pipeline-level safeguards if that is unwanted.
 - Act-As grants are effectively credential delegation — the subject can do
   everything the target service account can — so scope entries deliberately.
-- Chaining: pass the `service_account_id` output of an upstream
-  `stackit_service_account` resource as `resource_id` (no sibling module in
-  this repo; Terragrunt `dependency`).
+- Chaining: pass the `service_account_id` output of the
+  `stackit/service_account` module as `resource_id` (Terragrunt
+  `dependency`).
 - The runner's service account needs rights to manage role assignments on
   the target resource (rights over the target service account cover this —
   guidance, not a documented permission). Provider authentication (service
