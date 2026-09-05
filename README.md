@@ -18,6 +18,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/organization-iam` | Google Cloud organization IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/service-account` | Google Cloud service accounts. |
 | `modules/gcp/service-account-iam` | Google Cloud service account IAM: members, bindings, and policies. |
+| `modules/gcp/firewall` | Google Cloud firewall rules (allow/deny) in a VPC network. |
+| `modules/gcp/nat` | Google Cloud Router and Cloud NAT gateways. |
+| `modules/gcp/static_ip` | Google Cloud regional and global static IP addresses. |
 | `modules/gcp/subnet` | Google Cloud subnetworks in a VPC network. |
 | `modules/gcp/vpc` | Google Cloud VPC networks. |
 | `modules/stackit/folder` | STACKIT Resource Manager folders under an organization or parent folder. |
