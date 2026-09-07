@@ -74,7 +74,7 @@ Map-keyed module for Google Cloud compute instances with optional disks and IAM 
 | `nic_type` | `string` | — | One of `GVNIC`, `VIRTIO_NET`, `MRDMA`, `IRDMA`, `IDPF` (validated). |
 | `stack_type` | `string` | — | One of `IPV4_ONLY`, `IPV4_IPV6`, `IPV6_ONLY` (validated); defaults to `IPV4_ONLY`. |
 | `queue_count` | `number` | — | Number of vNIC queues (total vCPUs ≥ 8). |
-| `access_config` | `object` | — | External IPv4: `{nat_ip, network_tier}`; tier one of `PREMIUM`, `FIXED_STANDARD`, `STANDARD` (validated). Omit for an ephemeral address; pair `nat_ip` with `gcp/static_ip`. |
+| `access_config` | `object` | — | External IPv4: `{nat_ip, network_tier}`; tier one of `PREMIUM`, `FIXED_STANDARD`, `STANDARD` (validated). Omit for an ephemeral address; pair `nat_ip` with `gcp/static-ip`. |
 | `ipv6_access_config` | `object` | — | `{network_tier}`; `PREMIUM` or `STANDARD` (validated). |
 | `alias_ip_ranges` | `list(object)` | `[]` | `{ip_cidr_range, subnetwork_range_name}` secondary ranges. |
 
@@ -185,7 +185,7 @@ instances = {
 - Confidential VMs require `on_host_maintenance = "TERMINATE"` unless the
   type is `SEV` with `min_cpu_platform` `AMD Milan`/`AMD Genoa` (API-enforced).
 - Pair with `gcp/vpc` (`network` names/self links), `gcp/subnet`
-  (`subnetwork` self links), `gcp/static_ip` (`access_config.nat_ip`), and
+  (`subnetwork` self links), `gcp/static-ip` (`access_config.nat_ip`), and
   `gcp/firewall` (`tags` targeting).
 
 - Not yet in scope (future additions): `scratch_disk` (local SSD), attach-only

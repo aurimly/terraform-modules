@@ -194,7 +194,7 @@ managers = {
 - Zonal only: regional MIGs (`google_compute_region_instance_group_manager`)
   are future scope.
 - Pair with `gcp/instance-template` (versions), `gcp/firewall` (instance
-  network tags), and `gcp/static_ip` (stateful external IPs).
+  network tags), and `gcp/static-ip` (stateful external IPs).
 
 - Not yet in scope (future additions): regional instance group managers and
   regional autoscalers, `update_policy.min_ready_sec` (beta-gated on the

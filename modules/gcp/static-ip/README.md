@@ -1,4 +1,4 @@
-# gcp/static_ip
+# gcp/static-ip
 
 Map-keyed module for Google Cloud regional and global static IP addresses.
 
