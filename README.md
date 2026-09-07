@@ -21,6 +21,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/bucket` | Google Cloud Storage buckets with optional IAM bindings. |
 | `modules/gcp/billing-budget` | Google Cloud billing budgets with threshold and notification rules. |
 | `modules/gcp/project-services` | Google Cloud project API (service) enablement. |
+| `modules/gcp/compute-instance` | Google Cloud compute instances with optional disks and IAM bindings. |
+| `modules/gcp/instance-group-manager` | Google Cloud zonal managed instance groups with optional autoscaling. |
+| `modules/gcp/instance-template` | Google Cloud instance templates for managed instance groups. |
 | `modules/gcp/firewall` | Google Cloud firewall rules (allow/deny) in a VPC network. |
 | `modules/gcp/nat` | Google Cloud Router and Cloud NAT gateways. |
 | `modules/gcp/static_ip` | Google Cloud regional and global static IP addresses. |
