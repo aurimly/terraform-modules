@@ -29,6 +29,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/static-ip` | Google Cloud regional and global static IP addresses. |
 | `modules/gcp/subnet` | Google Cloud subnetworks in a VPC network. |
 | `modules/gcp/vpc` | Google Cloud VPC networks. |
+| `modules/gcp/gke` | Google Kubernetes Engine clusters with node pools and backup plans. |
+| `modules/gcp/load-balancer` | Google Cloud load balancing: health checks, backend services/buckets, URL maps, target proxies, and forwarding rules. |
 | `modules/stackit/folder` | STACKIT Resource Manager folders under an organization or parent folder. |
 | `modules/stackit/project` | STACKIT Resource Manager projects under an organization or folder. |
 | `modules/stackit/organization_role_assignment` | STACKIT authorization role assignments on an organization. |
