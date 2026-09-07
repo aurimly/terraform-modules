@@ -40,7 +40,7 @@ Map-keyed module for Google Cloud Routers and Cloud NAT gateways.
 | `source_subnetwork_ip_ranges_to_nat` | `string` | — | One of `ALL_SUBNETWORKS_ALL_IP_RANGES`, `ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES`, `LIST_OF_SUBNETWORKS` (case-sensitive, validated). |
 | `project_id` | `string` | — | Project the NAT lives in; defaults to the provider-level project. Format validated. |
 | `nat_ip_allocate_option` | `string` | `AUTO_ONLY` | One of `AUTO_ONLY`, `MANUAL_ONLY` (case-sensitive, validated). |
-| `nat_ips` | `list(string)` | — | Reserved address self links; required iff `MANUAL_ONLY` (validated). Pair with `gcp/static_ip` below. |
+| `nat_ips` | `list(string)` | — | Reserved address self links; required iff `MANUAL_ONLY` (validated). Pair with `gcp/static-ip` below. |
 | `subnetworks` | `list(object)` | `[]` | Only with `LIST_OF_SUBNETWORKS`; see the sub-table. Non-empty iff `LIST_OF_SUBNETWORKS` (validated). |
 | `log_config` | `object` | — | Presence enables NAT logging; `{enable = true (default), filter = "ALL"/"ERRORS_ONLY"/"TRANSLATIONS_ONLY"}` (validated). |
 | `min_ports_per_vm` | `number` | — | Lower port limit; power of two ≥ 32 (provider defaults: 64 static, 32 dynamic). Validated client-side. |
@@ -115,7 +115,7 @@ nats = {
 - Only one NAT with `ALL_SUBNETWORKS_ALL_IP_RANGES` or
   `ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES` may exist per network and region
   (API-enforced); model per-subnet NATs with `LIST_OF_SUBNETWORKS`.
-- `MANUAL_ONLY` pairs with `gcp/static_ip` regional `EXTERNAL` addresses:
+- `MANUAL_ONLY` pairs with `gcp/static-ip` regional `EXTERNAL` addresses:
   pass the reserved addresses' self links as `nat_ips`, and remember to free
   them (or switch the NAT to `AUTO_ONLY`) before deleting the address —
   addresses in use by a NAT cannot be deleted until the gateway is updated
@@ -125,7 +125,7 @@ nats = {
 - BGP `keepalive_interval` is a router property, not a NAT one — it lives on
   the `routers.bgp` block here.
 - Pair with `gcp/vpc` (`network` names/self links), `gcp/subnet`
-  (`subnetworks.name` self links), and `gcp/static_ip` (`MANUAL_ONLY`).
+  (`subnetworks.name` self links), and `gcp/static-ip` (`MANUAL_ONLY`).
 
 - Not yet in scope (future additions): NAT `rules` (mapping rules), `type` (PRIVATE NAT), `drain_nat_ips`, `endpoint_types`, and the NAT64 range attributes; routers: `encrypted_interconnect_router`, BGP MD5 authentication, `ncc_gateway`.
 
