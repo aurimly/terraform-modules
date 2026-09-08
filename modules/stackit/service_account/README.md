@@ -77,11 +77,11 @@ service_accounts = {
   (e.g. a project owner/admin role — guidance, not a documented
   permission). Provider authentication (service account key flow) is
   configured at the consumer's root level.
-- The provider floor `>= 0.113.0` matches the
-  `stackit/service_account_role_assignment` module so both behave
-  identically when consumed together; the resource itself predates that
-  version and the current shape (including `service_account_id`) is
-  confirmed against it.
+- The provider floor `>= 0.114.0` is aligned across all stackit modules to
+  the latest provider release the modules are tested against, so all
+  stackit resources behave identically when consumed together; the
+  resource itself predates that version and the current shape (including
+  `service_account_id`) is confirmed against it.
 
 ## Import
 
