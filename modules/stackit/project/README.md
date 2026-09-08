@@ -82,8 +82,9 @@ projects = {
   permission on the parent organization or folder (included in the Owner
   role). Provider authentication (service account key flow) is configured
   at the consumer's root level.
-- The provider floor `>= 0.66.0` matches the `stackit/folder` module so
-  both resources behave identically when consumed together; the project
+- The provider floor `>= 0.114.0` is aligned across all stackit modules to
+  the latest provider release the modules are tested against, so all
+  stackit resources behave identically when consumed together; the project
   resource itself predates that version.
 
 ## Import

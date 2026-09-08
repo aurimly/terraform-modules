@@ -73,10 +73,10 @@ role_assignments = {
   the target resource (owner-level role on the project covers this —
   guidance, not a documented permission). Provider authentication (service
   account key flow) is configured at the consumer's root level.
-- The provider floor `>= 0.113.0` is the version against which the current
-  experimental shape of the resource is confirmed; the role-assignment
-  resources were refactored by the provider over time and the current shape
-  is stable from this floor on.
+- The provider floor `>= 0.114.0` is aligned across all stackit modules to
+  the latest provider release the modules are tested against; the
+  role-assignment resources were refactored by the provider over time and
+  their current shape is confirmed against this release.
 
 ## Import
 
