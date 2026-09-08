@@ -41,6 +41,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/network` | STACKIT virtual networks with IPv4/IPv6 prefixes, gateways, nameservers, and DHCP. |
 | `modules/stackit/security_group` | STACKIT security groups with optional inline security group rules. |
 | `modules/stackit/public_ip` | STACKIT public IP addresses, optionally associated with a network interface. |
+| `modules/stackit/load_balancer` | STACKIT load balancers with listeners, target pools, and targets. |
+| `modules/stackit/object_storage` | STACKIT Object Storage buckets, credentials groups, and credentials. |
+| `modules/stackit/ske` | STACKIT Kubernetes Engine clusters with node pools and optional kubeconfigs. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 
