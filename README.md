@@ -31,6 +31,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/vpc` | Google Cloud VPC networks. |
 | `modules/gcp/gke` | Google Kubernetes Engine clusters with node pools and backup plans. |
 | `modules/gcp/load-balancer` | Google Cloud load balancing: health checks, backend services/buckets, URL maps, target proxies, and forwarding rules. |
+| `modules/gcp/kms` | Google Cloud KMS key rings, crypto keys, and IAM bindings. |
+| `modules/gcp/private-service-connect` | Google Cloud Private Services Access: VPC peering ranges and service networking connections. |
+| `modules/gcp/filestore` | Google Cloud Filestore instances with optional backups. |
+| `modules/gcp/artifact-registry` | Google Cloud Artifact Registry repositories with optional IAM bindings. |
 | `modules/stackit/folder` | STACKIT Resource Manager folders under an organization or parent folder. |
 | `modules/stackit/project` | STACKIT Resource Manager projects under an organization or folder. |
 | `modules/stackit/organization_role_assignment` | STACKIT authorization role assignments on an organization. |
