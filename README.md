@@ -35,6 +35,11 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/private-service-connect` | Google Cloud Private Services Access: VPC peering ranges and service networking connections. |
 | `modules/gcp/filestore` | Google Cloud Filestore instances with optional backups. |
 | `modules/gcp/artifact-registry` | Google Cloud Artifact Registry repositories with optional IAM bindings. |
+| `modules/gcp/cloud-armor` | Google Cloud Armor security policies: IP rules, preconfigured WAF rules, rate limiting, redirects, and adaptive protection. |
+| `modules/gcp/managed-ssl-certificate` | Google-managed SSL certificates for load balancer target proxies. |
+| `modules/gcp/ssl-policy` | Google Cloud SSL policies for target HTTPS proxies. |
+| `modules/gcp/shared-vpc` | Google Cloud Shared VPC host enablement and service project attachment. |
+| `modules/gcp/psc-endpoint` | Google Cloud Private Service Connect consumer endpoints: internal IPs and forwarding rules targeting service attachments. |
 | `modules/stackit/folder` | STACKIT Resource Manager folders under an organization or parent folder. |
 | `modules/stackit/project` | STACKIT Resource Manager projects under an organization or folder. |
 | `modules/stackit/organization_role_assignment` | STACKIT authorization role assignments on an organization. |
