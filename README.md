@@ -53,6 +53,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/load_balancer` | STACKIT load balancers with listeners, target pools, and targets. |
 | `modules/stackit/object_storage` | STACKIT Object Storage buckets, credentials groups, and credentials. |
 | `modules/stackit/ske` | STACKIT Kubernetes Engine clusters with node pools and optional kubeconfigs. |
+| `modules/stackit/server` | STACKIT servers (virtual machines) booting from an image or boot volume. |
+| `modules/stackit/volume` | STACKIT block-storage volumes, optionally created from an image/snapshot source. |
+| `modules/stackit/image` | STACKIT images uploaded from local image files. |
+| `modules/stackit/key_pair` | STACKIT SSH key pairs for server authentication. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 
