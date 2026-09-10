@@ -40,6 +40,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/ssl-policy` | Google Cloud SSL policies for target HTTPS proxies. |
 | `modules/gcp/shared-vpc` | Google Cloud Shared VPC host enablement and service project attachment. |
 | `modules/gcp/psc-endpoint` | Google Cloud Private Service Connect consumer endpoints: internal IPs and forwarding rules targeting service attachments. |
+| `modules/gcp/logging` | Google Cloud log sinks to Cloud Storage, Pub/Sub, BigQuery, or Cloud Logging with filters and exclusions. |
+| `modules/gcp/iam-custom-role` | Google Cloud custom IAM roles at organization or project level. |
+| `modules/gcp/cloud-sql` | Google Cloud SQL PostgreSQL/MySQL instances with optional read replicas. |
+| `modules/gcp/memorystore` | Google Cloud Memorystore Redis/Valkey instances. |
 | `modules/stackit/folder` | STACKIT Resource Manager folders under an organization or parent folder. |
 | `modules/stackit/project` | STACKIT Resource Manager projects under an organization or folder. |
 | `modules/stackit/organization_role_assignment` | STACKIT authorization role assignments on an organization. |
