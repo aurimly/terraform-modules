@@ -48,6 +48,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/dns-record-sets` | Google Cloud DNS resource record sets in a single managed zone, with weighted/geo/primary-backup routing policies. |
 | `modules/gcp/cloud-run` | Google Cloud Run services with optional IAM bindings. |
 | `modules/gcp/monitoring` | Google Cloud Monitoring dashboards and alert policies. |
+| `modules/gcp/secret-manager` | Google Secret Manager secrets with optional versions, replication, rotation, and IAM bindings. |
+| `modules/gcp/pubsub` | Google Pub/Sub topics with nested subscriptions (push/pull/BigQuery/Cloud Storage) and IAM bindings. |
+| `modules/gcp/workload-identity-federation` | Google Workload Identity Federation pools, providers (OIDC/SAML/AWS/X.509), and service account token-creator grants. |
 | `modules/stackit/folder` | STACKIT Resource Manager folders under an organization or parent folder. |
 | `modules/stackit/project` | STACKIT Resource Manager projects under an organization or folder. |
 | `modules/stackit/organization_role_assignment` | STACKIT authorization role assignments on an organization. |
