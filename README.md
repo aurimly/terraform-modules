@@ -68,6 +68,11 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/volume` | STACKIT block-storage volumes, optionally created from an image/snapshot source. |
 | `modules/stackit/image` | STACKIT images uploaded from local image files. |
 | `modules/stackit/key_pair` | STACKIT SSH key pairs for server authentication. |
+| `modules/stackit/dns_zone` | STACKIT DNS zones (primary/secondary) with SOA tuning and reverse-zone support. |
+| `modules/stackit/dns_record_set` | STACKIT DNS record sets (A, AAAA, CNAME, MX, TXT, ...) inside a DNS zone. |
+| `modules/stackit/secrets_manager` | STACKIT Secrets Manager instances with ACLs and optional KMS encryption. |
+| `modules/stackit/postgresflex_instance` | STACKIT PostgreSQL Flex instances with storage, flavor, network ACL, and backup schedule. |
+| `modules/stackit/postgresflex_database` | STACKIT PostgreSQL Flex databases inside an existing instance. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 
