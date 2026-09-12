@@ -78,7 +78,7 @@ zones = {
   "example.io" = {
     dnssec = true
     tags = {
-      owner = "netops"
+      owner = "team-a"
     }
   }
   "example.eu" = {

@@ -51,7 +51,7 @@ redirects = {
     target           = "https://example.com/inflight"
     forwarding_type  = "temporary"
     forwarding_mode  = "all"
-    tags             = ["team:netops"]
+    tags             = ["team:team-a"]
   }
 }
 ```
