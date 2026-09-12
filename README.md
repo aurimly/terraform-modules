@@ -9,6 +9,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/cloudflare/zone` | Cloudflare zones and granular zone settings. |
 | `modules/cloudflare/dns-records` | Cloudflare DNS records in a single zone. |
 | `modules/cloudflare/worker-domains` | Cloudflare Workers custom domains. |
+| `modules/ns1/zone` | NS1 zones: primary, linked, secondary with TSIG, DNSSEC. |
+| `modules/ns1/record` | NS1 DNS records with filter chains, regions, and answers. |
+| `modules/ns1/redirect` | NS1 URL redirects. |
 | `modules/github/repository` | GitHub repository settings and branch protection. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
