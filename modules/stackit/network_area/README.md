@@ -51,10 +51,10 @@ the area. The area resource itself carries only name and labels — it
 does not create networks or prefixes.
 
 The regional configuration — transfer network, IPv4 network ranges,
-default/min/max prefix length, default nameservers — lives in the
-separate `stackit_network_area_region` resource and is out of scope
-here, as are area routes (`stackit_network_area_route`); both are
-candidates for follow-up modules.
+default/min/max prefix length, default nameservers — is covered by
+`modules/stackit/network_area_region`. Area routes
+(`stackit_network_area_route`) remain out of scope here and are a
+candidate for a follow-up module.
 
 ## Notes
 
