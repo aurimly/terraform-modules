@@ -47,9 +47,11 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/iam-custom-role` | Google Cloud custom IAM roles at organization or project level. |
 | `modules/gcp/cloud-sql` | Google Cloud SQL PostgreSQL/MySQL instances with optional read replicas. |
 | `modules/gcp/memorystore` | Google Cloud Memorystore Redis/Valkey instances. |
+| `modules/gcp/redis-cluster` | Google Cloud Memorystore for Redis Cluster instances with PSC endpoints and maintenance windows. |
 | `modules/gcp/dns-zone` | Google Cloud DNS managed zones: public, private, forwarding, and peering zones. |
 | `modules/gcp/dns-record-sets` | Google Cloud DNS resource record sets in a single managed zone, with weighted/geo/primary-backup routing policies. |
 | `modules/gcp/cloud-run` | Google Cloud Run services with optional IAM bindings. |
+| `modules/gcp/cloud-functions` | Google Cloud Functions (2nd gen) with build/service/event-trigger config and optional IAM bindings. |
 | `modules/gcp/monitoring` | Google Cloud Monitoring dashboards and alert policies. |
 | `modules/gcp/secret-manager` | Google Secret Manager secrets with optional versions, replication, rotation, and IAM bindings. |
 | `modules/gcp/pubsub` | Google Pub/Sub topics with nested subscriptions (push/pull/BigQuery/Cloud Storage) and IAM bindings. |
