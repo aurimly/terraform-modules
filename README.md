@@ -66,7 +66,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/public_ip` | STACKIT public IP addresses, optionally associated with a network interface. |
 | `modules/stackit/load_balancer` | STACKIT load balancers with listeners, target pools, and targets. |
 | `modules/stackit/object_storage` | STACKIT Object Storage buckets, credentials groups, and credentials. |
+| `modules/stackit/observability_instance` | STACKIT Observability instances with plan, ACL, retention, Grafana admin, and alerting configuration. |
 | `modules/stackit/ske` | STACKIT Kubernetes Engine clusters with node pools and optional kubeconfigs. |
+| `modules/stackit/ske_kubeconfig` | STACKIT short-lived SKE kubeconfigs for existing clusters, with expiry and in-place refresh. |
 | `modules/stackit/server` | STACKIT servers (virtual machines) booting from an image or boot volume. |
 | `modules/stackit/volume` | STACKIT block-storage volumes, optionally created from an image/snapshot source. |
 | `modules/stackit/image` | STACKIT images uploaded from local image files. |

@@ -202,6 +202,8 @@ module "ske" {
   pipeline-scoped access without a persisted credential, consider the
   provider's ephemeral `stackit_ske_kubeconfig` resource (provider
   >= 0.113.0) instead.
+- For standalone kubeconfig management for clusters not managed by this
+  module, see modules/stackit/ske_kubeconfig.
 - `network.control_plane` (SNA access scope) and
   `extensions.application_load_balancer` are private preview: applies
   fail for projects not enabled for the features.
