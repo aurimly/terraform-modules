@@ -82,8 +82,9 @@ networks = {
   updates.
 - Names are not unique per project upstream, so duplicate names across
   entries are allowed; no uniqueness check is enforced.
-- Network areas, area ranges/routes and the VPC-rework attributes
-  (`vpc_id`, `ipv4_vpc_network_range_id`, `ipv6_vpc_network_range_id`,
+- Network areas are covered by `modules/stackit/network_area`; area
+  region/route resources and the VPC-rework attributes (`vpc_id`,
+  `ipv4_vpc_network_range_id`, `ipv6_vpc_network_range_id`,
   `routing_table_id`, provider >= 0.110.0) are intentionally out of
   scope — candidates for separate future modules.
 - A network still in use cannot be deleted upstream; detach dependent
