@@ -50,8 +50,8 @@ module "postgresflex_database" {
 
 - Keys are arbitrary unique identifiers, not names.
 - `owner` must reference an existing PostgresFlex user — create users
-  consumer-side or via a future `postgresflex_user` module; this module
-  does not create users and exposes no credentials.
+  via stackit/postgresflex_user; this module does not create users and
+  exposes no credentials.
 - Renaming a map key destroys and recreates the database.
 - Plan-time validations mirror the provider's plan-time validators
   (UUIDs) and the documented rules (non-empty name and owner).
