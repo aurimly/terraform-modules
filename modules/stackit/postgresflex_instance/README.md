@@ -115,8 +115,7 @@ module "postgresflex_instance" {
   intentionally not exposed; they are scheduled for removal after
   February 2027 and `flavor_id`/`network.acl` are the supported paths.
 - Database users and their passwords are managed via
-  `stackit_postgresflex_user` (a separate resource, not covered here);
-  this module exposes no credentials.
+  stackit/postgresflex_user; this module exposes no credentials.
 - Plan-time validations follow the provider's plan-time validators
   (UUIDs, name rule, retention bound, access scope, ACL form and CIDR
   notation) where those exist. The five-field cron shape for

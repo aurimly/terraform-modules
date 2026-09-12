@@ -73,6 +73,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/secrets_manager` | STACKIT Secrets Manager instances with ACLs and optional KMS encryption. |
 | `modules/stackit/postgresflex_instance` | STACKIT PostgreSQL Flex instances with storage, flavor, network ACL, and backup schedule. |
 | `modules/stackit/postgresflex_database` | STACKIT PostgreSQL Flex databases inside an existing instance. |
+| `modules/stackit/postgresflex_user` | STACKIT PostgreSQL Flex database users with roles and API-generated passwords. |
+| `modules/stackit/secrets_manager_user` | STACKIT Secrets Manager users with auto-generated credentials. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 
@@ -81,3 +83,7 @@ All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 These modules are open source and free to use. For help architecting or
 managing Terraform infrastructure at scale, [xtralinux.com](https://xtralinux.com)
 offers consulting and managed IaC — [get in touch](https://xtralinux.com).
+
+## License
+
+These modules are released under the MIT License — see [LICENSE](LICENSE).

@@ -64,9 +64,8 @@ module "secrets_manager" {
 ## Notes
 
 - Keys are arbitrary unique identifiers, not names.
-- Users and credentials are managed via `stackit_secretsmanager_user`,
-  a separate resource intentionally out of scope here (a candidate
-  future module); this module exposes no credentials or instance URL.
+- Users and credentials are managed via stackit/secrets_manager_user;
+  this module exposes no credentials or instance URL.
 - The resource has no `region` attribute — the region comes from the
   provider configuration at the consumer's unit level, which must set
   one or the apply fails provider-side.
