@@ -85,6 +85,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/postgresflex_database` | STACKIT PostgreSQL Flex databases inside an existing instance. |
 | `modules/stackit/postgresflex_user` | STACKIT PostgreSQL Flex database users with roles and API-generated passwords. |
 | `modules/stackit/secrets_manager_user` | STACKIT Secrets Manager users with auto-generated credentials. |
+| `modules/stackit/public_ip_associate` | STACKIT associations of existing public IPs to network interfaces. |
+| `modules/stackit/server_volume_attach` | STACKIT attachments of existing volumes to servers. |
+| `modules/stackit/server_network_interface_attach` | STACKIT attachments of network interfaces to servers, effective after reboot. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 

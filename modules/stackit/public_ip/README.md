@@ -62,8 +62,11 @@ public_ips = {
   }
   ```
 
-- The dedicated `stackit_public_ip_associate` resource is out of scope;
-  association here is the `network_interface_id` attribute.
+- Association is the `network_interface_id` attribute here. To associate
+  an existing (pre-allocated) IP post-hoc, use the dedicated
+  `stackit/public_ip_associate` module instead — do not use both for the
+  same public IP or network interface, as both control the association
+  and will conflict.
 - The provider floor `>= 0.114.0` is aligned across all stackit modules to
   the latest provider release the modules are tested against; the `region`
   attribute on the public IP resource was introduced in 0.75.0, so no

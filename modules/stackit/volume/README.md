@@ -104,8 +104,8 @@ volumes = {
   `key_payload_base64_wo` variant is left to consumers needing
   OpenTofu/Terraform >= 1.11.
 - Volumes are attached via a server's `boot_volume.source` (see
-  `modules/stackit/server`) or by other means outside this module's
-  scope.
+  `modules/stackit/server`) or post-create with
+  `modules/stackit/server_volume_attach`.
 - The provider floor `>= 0.114.0` is aligned across all stackit modules
   to the latest provider release the modules are tested against.
 - Provider authentication is configured at the consumer's unit level.
