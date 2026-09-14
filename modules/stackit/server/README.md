@@ -20,7 +20,7 @@ image ID or from a boot volume.
 | `availability_zone` | `string` | `null` | Availability zone (e.g. `eu01-3`). Changing it replaces the server. |
 | `image_id` | `string` | `null` | Image UUID to boot from (e.g. the `image_id` output of `modules/stackit/image`). Exactly one of `image_id` or `boot_volume` must be set. Changing it replaces the server. |
 | `boot_volume` | `object` | `null` | Boot volume definition, see sub-table. Exactly one of `image_id` or `boot_volume` must be set. |
-| `network_interface_ids` | `list(string)` | `null` | Network interface UUIDs to attach (created with `stackit_network_interface` — not yet a repo module). Changing the list replaces the server. |
+| `network_interface_ids` | `list(string)` | `null` | Network interface UUIDs to attach at create time (e.g. from the `stackit/network_interface` outputs). Changing the list replaces the server; to attach post-create without replacement, use `stackit/server_network_interface_attach`. |
 | `keypair_name` | `string` | `null` | Name of an existing STACKIT key pair (see `modules/stackit/key_pair`). Changing it replaces the server. |
 | `affinity_group` | `string` | `null` | Affinity group UUID. Changing it replaces the server. |
 | `user_data` | `string` | `null` | Cloud-init user data. Changing it replaces the server. Pass it via `sensitive()` from consumer config when it contains secrets. |
@@ -102,9 +102,10 @@ servers = {
   provider warns that creating a server without network interfaces
   causes problems when you want to (re-)create it. Attach at least one
   interface in practice.
-- Network interfaces are created with `stackit_network_interface`,
-  which is not yet a repo module — reference existing interface IDs
-  from consumer config or another source for now.
+- Network interfaces are created with `modules/stackit/network_interface`
+  and referenced here by ID. Attaching an interface post-create (without
+  replacing the server) is `modules/stackit/server_network_interface_attach`;
+  attaching a data volume post-create is `modules/stackit/server_volume_attach`.
 - Exactly one of `image_id` or `boot_volume` must be set (provider
   conflict rule).
 - The server `name` rule is stricter than other IaaS resources:

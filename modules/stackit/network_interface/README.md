@@ -61,7 +61,9 @@ network_interfaces = {
 - Composition: take `network_id` from `stackit/network` and
   `security_group_ids` from `stackit/security_group`; feed the output
   `network_interface_id` into `stackit/server` `network_interface_ids`
-  and `stackit/public_ip` `network_interface_id`.
+  and `stackit/public_ip` `network_interface_id`. Attaching an
+  interface to an existing server (post-create, without server
+  replacement) is `stackit/server_network_interface_attach`.
 - Egress NAT is a composition pattern, not a managed resource: STACKIT
   IaaS has no NAT gateway resource. The pattern is a dedicated
   interface in the target network, a public IP associated to it via
