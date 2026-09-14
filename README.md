@@ -56,6 +56,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/secret-manager` | Google Secret Manager secrets with optional versions, replication, rotation, and IAM bindings. |
 | `modules/gcp/pubsub` | Google Pub/Sub topics with nested subscriptions (push/pull/BigQuery/Cloud Storage) and IAM bindings. |
 | `modules/gcp/workload-identity-federation` | Google Workload Identity Federation pools, providers (OIDC/SAML/AWS/X.509), and service account token-creator grants. |
+| `modules/gcp/cloud-tasks` | Google Cloud Tasks queues with rate/retry limits, HTTP target overrides, and optional IAM bindings. |
+| `modules/gcp/cloud-scheduler` | Google Cloud Scheduler jobs with Pub/Sub, HTTP, and App Engine targets. |
+| `modules/gcp/cloud-workflows` | Google Workflows with CMEK, call logging, execution history levels, and runtime env vars. |
+| `modules/gcp/notification-channels` | Google Cloud Monitoring notification channels (email, Slack, PagerDuty, webhook, ...) referenced by alert policies. |
 | `modules/stackit/folder` | STACKIT Resource Manager folders under an organization or parent folder. |
 | `modules/stackit/project` | STACKIT Resource Manager projects under an organization or folder. |
 | `modules/stackit/organization_role_assignment` | STACKIT authorization role assignments on an organization. |
