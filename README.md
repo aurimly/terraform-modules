@@ -49,13 +49,16 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/logging` | Google Cloud log sinks to Cloud Storage, Pub/Sub, BigQuery, or Cloud Logging with filters and exclusions. |
 | `modules/gcp/iam-custom-role` | Google Cloud custom IAM roles at organization or project level. |
 | `modules/gcp/cloud-sql` | Google Cloud SQL PostgreSQL/MySQL instances with optional read replicas. |
+| `modules/gcp/alloydb` | Google Cloud AlloyDB clusters with instances, automated/continuous backup config, and on-demand backups. |
 | `modules/gcp/bigquery` | Google BigQuery datasets with IAM bindings and nested tables (partitioning, clustering, views, external data). |
 | `modules/gcp/memorystore` | Google Cloud Memorystore Redis/Valkey instances. |
 | `modules/gcp/redis-cluster` | Google Cloud Memorystore for Redis Cluster instances with PSC endpoints and maintenance windows. |
+| `modules/gcp/bigtable` | Google Cloud Bigtable instances with clusters, tables, column families, GC policies, app profiles, and IAM bindings. |
 | `modules/gcp/dns-zone` | Google Cloud DNS managed zones: public, private, forwarding, and peering zones. |
 | `modules/gcp/dns-record-sets` | Google Cloud DNS resource record sets in a single managed zone, with weighted/geo/primary-backup routing policies. |
 | `modules/gcp/cloud-run` | Google Cloud Run services with optional IAM bindings. |
 | `modules/gcp/cloud-functions` | Google Cloud Functions (2nd gen) with build/service/event-trigger config and optional IAM bindings. |
+| `modules/gcp/dataproc` | Google Cloud Dataproc clusters with GCE cluster config and IAM bindings. |
 | `modules/gcp/monitoring` | Google Cloud Monitoring dashboards and alert policies. |
 | `modules/gcp/secret-manager` | Google Secret Manager secrets with optional versions, replication, rotation, and IAM bindings. |
 | `modules/gcp/pubsub` | Google Pub/Sub topics with nested subscriptions (push/pull/BigQuery/Cloud Storage) and IAM bindings. |
@@ -63,6 +66,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/cloud-tasks` | Google Cloud Tasks queues with rate/retry limits, HTTP target overrides, and optional IAM bindings. |
 | `modules/gcp/cloud-scheduler` | Google Cloud Scheduler jobs with Pub/Sub, HTTP, and App Engine targets. |
 | `modules/gcp/cloud-workflows` | Google Workflows with CMEK, call logging, execution history levels, and runtime env vars. |
+| `modules/gcp/cloud-composer` | Google Cloud Composer (Managed Airflow Gen 3) environments with software, workload, maintenance, and recovery config. |
 | `modules/gcp/notification-channels` | Google Cloud Monitoring notification channels (email, Slack, PagerDuty, webhook, ...) referenced by alert policies. |
 | `modules/stackit/folder` | STACKIT Resource Manager folders under an organization or parent folder. |
 | `modules/stackit/project` | STACKIT Resource Manager projects under an organization or folder. |
