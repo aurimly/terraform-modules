@@ -46,6 +46,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/logging` | Google Cloud log sinks to Cloud Storage, Pub/Sub, BigQuery, or Cloud Logging with filters and exclusions. |
 | `modules/gcp/iam-custom-role` | Google Cloud custom IAM roles at organization or project level. |
 | `modules/gcp/cloud-sql` | Google Cloud SQL PostgreSQL/MySQL instances with optional read replicas. |
+| `modules/gcp/bigquery` | Google BigQuery datasets with IAM bindings and nested tables (partitioning, clustering, views, external data). |
 | `modules/gcp/memorystore` | Google Cloud Memorystore Redis/Valkey instances. |
 | `modules/gcp/redis-cluster` | Google Cloud Memorystore for Redis Cluster instances with PSC endpoints and maintenance windows. |
 | `modules/gcp/dns-zone` | Google Cloud DNS managed zones: public, private, forwarding, and peering zones. |
