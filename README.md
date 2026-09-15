@@ -67,11 +67,13 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/project_role_assignment` | STACKIT authorization role assignments on a project. |
 | `modules/stackit/service_account_role_assignment` | STACKIT authorization 'Act-As' role assignments on a service account. |
 | `modules/stackit/service_account` | STACKIT service accounts in a project (email and service account ID). |
+| `modules/stackit/service_account_key` | STACKIT service account keys (key JSON, optional TTL and rotation trigger). |
 | `modules/stackit/network` | STACKIT virtual networks with IPv4/IPv6 prefixes, gateways, nameservers, and DHCP. |
 | `modules/stackit/network_area` | STACKIT network areas (SNA) at organization level; the parent of classic networks and their prefix pools. |
 | `modules/stackit/network_area_region` | STACKIT network area regional configuration: transfer network, IPv4 ranges, prefix bounds, and default nameservers per region. |
 | `modules/stackit/network_interface` | STACKIT network interfaces with explicit IPv4, security groups, and allowed address pairs. |
 | `modules/stackit/security_group` | STACKIT security groups with optional inline security group rules. |
+| `modules/stackit/security_group_rule` | STACKIT security group rules on existing security groups. |
 | `modules/stackit/public_ip` | STACKIT public IP addresses, optionally associated with a network interface. |
 | `modules/stackit/load_balancer` | STACKIT load balancers with listeners, target pools, and targets. |
 | `modules/stackit/object_storage` | STACKIT Object Storage buckets, credentials groups, and credentials. |
@@ -100,6 +102,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/public_ip_associate` | STACKIT associations of existing public IPs to network interfaces. |
 | `modules/stackit/server_volume_attach` | STACKIT attachments of existing volumes to servers. |
 | `modules/stackit/server_network_interface_attach` | STACKIT attachments of network interfaces to servers, effective after reboot. |
+| `modules/stackit/server_service_account_attach` | STACKIT attachments of service accounts to servers. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 
