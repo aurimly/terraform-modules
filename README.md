@@ -32,8 +32,11 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/static-ip` | Google Cloud regional and global static IP addresses. |
 | `modules/gcp/subnet` | Google Cloud subnetworks in a VPC network. |
 | `modules/gcp/vpc` | Google Cloud VPC networks. |
+| `modules/gcp/vpc-connector` | Google Cloud Serverless VPC Access connectors (dedicated range or shared-VPC subnet). |
 | `modules/gcp/gke` | Google Kubernetes Engine clusters with node pools and backup plans. |
 | `modules/gcp/load-balancer` | Google Cloud load balancing: health checks, backend services/buckets, URL maps, target proxies, and forwarding rules. |
+| `modules/gcp/network-endpoint-group` | Google Cloud network endpoint groups (zonal and regional) with endpoints for GCE VM and hybrid backends. |
+| `modules/gcp/target-proxies` | Google Cloud target proxies: TCP (global and regional), SSL, and gRPC for load balancers. |
 | `modules/gcp/kms` | Google Cloud KMS key rings, crypto keys, and IAM bindings. |
 | `modules/gcp/private-service-connect` | Google Cloud Private Services Access: VPC peering ranges and service networking connections. |
 | `modules/gcp/filestore` | Google Cloud Filestore instances with optional backups. |
