@@ -88,6 +88,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/postgresflex_instance` | STACKIT PostgreSQL Flex instances with storage, flavor, network ACL, and backup schedule. |
 | `modules/stackit/postgresflex_database` | STACKIT PostgreSQL Flex databases inside an existing instance. |
 | `modules/stackit/postgresflex_user` | STACKIT PostgreSQL Flex database users with roles and API-generated passwords. |
+| `modules/stackit/kms_keyring` | STACKIT KMS keyrings (not destroyed by `terraform destroy`, dropped from state only). |
+| `modules/stackit/kms_key` | STACKIT KMS keys inside a keyring (destroy schedules deletion, keys are recoverable within the grace period). |
+| `modules/stackit/mongodbflex_instance` | STACKIT MongoDB Flex instances with flavor, storage, ACL, and backup options. |
+| `modules/stackit/mongodbflex_user` | STACKIT MongoDB Flex database users with roles and API-generated passwords. |
 | `modules/stackit/secrets_manager_user` | STACKIT Secrets Manager users with auto-generated credentials. |
 | `modules/stackit/public_ip_associate` | STACKIT associations of existing public IPs to network interfaces. |
 | `modules/stackit/server_volume_attach` | STACKIT attachments of existing volumes to servers. |
