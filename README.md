@@ -79,6 +79,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/ske` | STACKIT Kubernetes Engine clusters with node pools and optional kubeconfigs. |
 | `modules/stackit/ske_kubeconfig` | STACKIT short-lived SKE kubeconfigs for existing clusters, with expiry and in-place refresh. |
 | `modules/stackit/server` | STACKIT servers (virtual machines) booting from an image or boot volume. |
+| `modules/stackit/server_backup_enable` | STACKIT enabling of the server backup service (destroy disables it). |
+| `modules/stackit/server_backup_schedule` | STACKIT server backup schedules (RFC 5545 rrule, requires backup enable). |
+| `modules/stackit/server_update_enable` | STACKIT enabling of the server update service (destroy disables it). |
+| `modules/stackit/server_update_schedule` | STACKIT server update schedules with maintenance window (requires update enable). |
 | `modules/stackit/volume` | STACKIT block-storage volumes, optionally created from an image/snapshot source. |
 | `modules/stackit/image` | STACKIT images uploaded from local image files. |
 | `modules/stackit/key_pair` | STACKIT SSH key pairs for server authentication. |
