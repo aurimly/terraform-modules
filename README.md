@@ -84,6 +84,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/network` | STACKIT virtual networks with IPv4/IPv6 prefixes, gateways, nameservers, and DHCP. |
 | `modules/stackit/network_area` | STACKIT network areas (SNA) at organization level; the parent of classic networks and their prefix pools. |
 | `modules/stackit/network_area_region` | STACKIT network area regional configuration: transfer network, IPv4 ranges, prefix bounds, and default nameservers per region. |
+| `modules/stackit/network_area_route` | STACKIT network area routes (SNA): destination CIDR with an IPv4, `blackhole`, or `internet` next hop, per region. |
 | `modules/stackit/network_interface` | STACKIT network interfaces with explicit IPv4, security groups, and allowed address pairs. |
 | `modules/stackit/security_group` | STACKIT security groups with optional inline security group rules. |
 | `modules/stackit/security_group_rule` | STACKIT security group rules on existing security groups. |
