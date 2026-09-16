@@ -18,9 +18,9 @@ resource "stackit_loadbalancer" "load_balancer" {
   disable_security_group_assignment = each.value.disable_security_group_assignment
   options                           = each.value.options
 
-  networks = [{
-    network_id = each.value.network.network_id
-    role       = each.value.network.role
+  networks = [for n in each.value.networks : {
+    network_id = n.network_id
+    role       = n.role
   }]
 
   listeners = [for l in each.value.listeners : {
