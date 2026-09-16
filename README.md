@@ -25,6 +25,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/billing-budget` | Google Cloud billing budgets with threshold and notification rules. |
 | `modules/gcp/project-services` | Google Cloud project API (service) enablement. |
 | `modules/gcp/compute-instance` | Google Cloud compute instances with optional disks and IAM bindings. |
+| `modules/gcp/compute-disk` | Google Cloud persistent disks, snapshots, snapshot schedules, and schedule attachments. |
 | `modules/gcp/instance-group-manager` | Google Cloud zonal managed instance groups with optional autoscaling. |
 | `modules/gcp/instance-template` | Google Cloud instance templates for managed instance groups. |
 | `modules/gcp/firewall` | Google Cloud firewall rules (allow/deny) in a VPC network. |
@@ -32,6 +33,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/static-ip` | Google Cloud regional and global static IP addresses. |
 | `modules/gcp/subnet` | Google Cloud subnetworks in a VPC network. |
 | `modules/gcp/vpc` | Google Cloud VPC networks. |
+| `modules/gcp/vpc-service-controls` | Google VPC Service Controls: access policies, access levels, service perimeters, and perimeter resources. |
 | `modules/gcp/vpc-connector` | Google Cloud Serverless VPC Access connectors (dedicated range or shared-VPC subnet). |
 | `modules/gcp/gke` | Google Kubernetes Engine clusters with node pools and backup plans. |
 | `modules/gcp/load-balancer` | Google Cloud load balancing: health checks, backend services/buckets, URL maps, target proxies, and forwarding rules. |
@@ -43,6 +45,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/artifact-registry` | Google Cloud Artifact Registry repositories with optional IAM bindings. |
 | `modules/gcp/cloud-armor` | Google Cloud Armor security policies: IP rules, preconfigured WAF rules, rate limiting, redirects, and adaptive protection. |
 | `modules/gcp/managed-ssl-certificate` | Google-managed SSL certificates for load balancer target proxies. |
+| `modules/gcp/certificate-manager` | Google Certificate Manager certificates, DNS authorizations, and certificate maps with SNI entries. |
 | `modules/gcp/ssl-policy` | Google Cloud SSL policies for target HTTPS proxies. |
 | `modules/gcp/shared-vpc` | Google Cloud Shared VPC host enablement and service project attachment. |
 | `modules/gcp/psc-endpoint` | Google Cloud Private Service Connect consumer endpoints: internal IPs and forwarding rules targeting service attachments. |
@@ -56,7 +59,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/bigtable` | Google Cloud Bigtable instances with clusters, tables, column families, GC policies, app profiles, and IAM bindings. |
 | `modules/gcp/dns-zone` | Google Cloud DNS managed zones: public, private, forwarding, and peering zones. |
 | `modules/gcp/dns-record-sets` | Google Cloud DNS resource record sets in a single managed zone, with weighted/geo/primary-backup routing policies. |
+| `modules/gcp/eventarc` | Google Cloud Eventarc standalone triggers delivering to Cloud Run, GKE, Workflows, or HTTP endpoints. |
 | `modules/gcp/cloud-run` | Google Cloud Run services with optional IAM bindings. |
+| `modules/gcp/cloud-build` | Google Cloud Build triggers with inline or repo-defined builds and manual approval gates. |
 | `modules/gcp/cloud-functions` | Google Cloud Functions (2nd gen) with build/service/event-trigger config and optional IAM bindings. |
 | `modules/gcp/dataproc` | Google Cloud Dataproc clusters with GCE cluster config and IAM bindings. |
 | `modules/gcp/monitoring` | Google Cloud Monitoring dashboards and alert policies. |
