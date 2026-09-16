@@ -20,7 +20,7 @@ and targets.
 | `external_address` | `string` | `null` | Public IP the load balancer is reachable on (e.g. from stackit/public_ip). Mutually exclusive with `options.private_network_only = true` — exactly one of the two is required (validated). Changing it replaces the load balancer. |
 | `disable_security_group_assignment` | `bool` | API default (`false`) | Whether the load balancer's security group is not auto-assigned to targets. Immutable after create. |
 | `options` | `object` | `null` | See the `options` object table. |
-| `network` | `object` | — | The single network the load balancer attaches to; see the `network` object table. Exactly one network is supported upstream; changing it replaces the load balancer. |
+| `networks` | `map(object)` | — | The networks the load balancer attaches to, see the `networks` object table. At least one entry is required (validated); changing it replaces the load balancer. |
 | `listeners` | `map(object)` | — | 1–20 listeners (validated); see the `listeners` object table. |
 | `target_pools` | `map(object)` | — | 1–20 target pools (validated); see the `target_pools` object table. |
 
@@ -32,7 +32,7 @@ and targets.
 | `acl` | `set(string)` | `null` | CIDR allowlist, IPv4 or IPv6 entries (validated). |
 | `observability` | `object` | `null` | `{logs = {credentials_ref, push_url}, metrics = {credentials_ref, push_url}}` — log/metrics shipping to a credentials group. Immutable after create. |
 
-### `network` object
+### `networks` object
 
 | Attribute | Type | Default | Description |
 |---|---|---|---|
@@ -85,9 +85,11 @@ module "load_balancer" {
       region           = "eu01"
       plan_id          = "p10"
       external_address = "198.51.100.10"
-      network = {
-        network_id = "87654321-4321-8765-4321-210987654321"
-        role       = "ROLE_LISTENERS_AND_TARGETS"
+      networks = {
+        "main" = {
+          network_id = "87654321-4321-8765-4321-210987654321"
+          role       = "ROLE_LISTENERS_AND_TARGETS"
+        }
       }
       listeners = {
         "https" = {
@@ -123,8 +125,11 @@ module "load_balancer" {
       options = {
         private_network_only = true
       }
-      network = {
-        network_id = "87654321-4321-8765-4321-210987654321"
+      networks = {
+        "main" = {
+          network_id = "87654321-4321-8765-4321-210987654321"
+          role       = "ROLE_LISTENERS_AND_TARGETS"
+        }
       }
       listeners = {
         "tcp" = {
@@ -150,8 +155,11 @@ module "load_balancer" {
 ## Notes
 
 - Keys are arbitrary unique identifiers, not names.
-- Exactly one network per load balancer (provider limit); it is set at
-  create and changing it replaces the load balancer.
+- Networks: the map converts to the provider's list in lexicographic
+  key order; set at create and changing it replaces the load balancer.
+  Listeners and targets may live in different networks by splitting
+  roles (`ROLE_LISTENERS` on the listeners-side network entry,
+  `ROLE_TARGETS` on the targets-side entry).
 - Public vs private: set `external_address` or
   `options.private_network_only = true` — exactly one of the two,
   validated at plan time (mirrors the provider rule).

@@ -21,10 +21,10 @@ variable "load_balancers" {
         }))
       }))
     }))
-    network = object({
+    networks = map(object({
       network_id = string
       role       = string
-    })
+    }))
     listeners = map(object({
       port         = number
       protocol     = string
@@ -73,8 +73,18 @@ variable "load_balancers" {
   }
 
   validation {
-    condition     = alltrue([for lb in var.load_balancers : can(regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$", lb.network.network_id))])
-    error_message = "network.network_id must be a UUID."
+    condition     = alltrue([for lb in var.load_balancers : length(lb.networks) >= 1])
+    error_message = "each load balancer requires at least one network (the provider's networks is a required list)."
+  }
+
+  validation {
+    condition     = alltrue([for lb in var.load_balancers : alltrue([for n in lb.networks : can(regex("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$", n.network_id))])])
+    error_message = "networks network_id must be a UUID."
+  }
+
+  validation {
+    condition     = alltrue([for lb in var.load_balancers : alltrue([for n in lb.networks : contains(["ROLE_UNSPECIFIED", "ROLE_LISTENERS_AND_TARGETS", "ROLE_LISTENERS", "ROLE_TARGETS"], n.role)])])
+    error_message = "networks role must be one of ROLE_UNSPECIFIED, ROLE_LISTENERS_AND_TARGETS, ROLE_LISTENERS or ROLE_TARGETS."
   }
 
   validation {
