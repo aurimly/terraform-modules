@@ -89,6 +89,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/security_group` | STACKIT security groups with optional inline security group rules. |
 | `modules/stackit/security_group_rule` | STACKIT security group rules on existing security groups. |
 | `modules/stackit/public_ip` | STACKIT public IP addresses, optionally associated with a network interface. |
+| `modules/stackit/vpn_gateway` | STACKIT VPN gateways (IPsec, two tunnels, routing type and BGP options). |
+| `modules/stackit/vpn_connection` | STACKIT VPN IPsec connections on a VPN gateway, with IKE phase settings and write-only pre-shared keys. |
 | `modules/stackit/load_balancer` | STACKIT load balancers with listeners, target pools, and targets. |
 | `modules/stackit/object_storage` | STACKIT Object Storage buckets, credentials groups, and credentials. |
 | `modules/stackit/observability_instance` | STACKIT Observability instances with plan, ACL, retention, Grafana admin, and alerting configuration. |
