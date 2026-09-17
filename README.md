@@ -92,6 +92,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/load_balancer` | STACKIT load balancers with listeners, target pools, and targets. |
 | `modules/stackit/object_storage` | STACKIT Object Storage buckets, credentials groups, and credentials. |
 | `modules/stackit/observability_instance` | STACKIT Observability instances with plan, ACL, retention, Grafana admin, and alerting configuration. |
+| `modules/stackit/observability_credential` | STACKIT Observability write credentials with API-generated passwords and a rotation trigger. |
 | `modules/stackit/ske` | STACKIT Kubernetes Engine clusters with node pools and optional kubeconfigs. |
 | `modules/stackit/ske_kubeconfig` | STACKIT short-lived SKE kubeconfigs for existing clusters, with expiry and in-place refresh. |
 | `modules/stackit/server` | STACKIT servers (virtual machines) booting from an image or boot volume. |
@@ -115,6 +116,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/mariadb_instance` | STACKIT MariaDB instances with plan and service parameters. |
 | `modules/stackit/mariadb_credential` | STACKIT MariaDB credentials with API-generated passwords. |
 | `modules/stackit/opensearch_instance` | STACKIT OpenSearch instances with plan and service parameters. |
+| `modules/stackit/logme_instance` | STACKIT LogMe instances with plan and service parameters. |
+| `modules/stackit/logme_credential` | STACKIT LogMe credentials with API-generated passwords. |
 | `modules/stackit/rabbitmq_instance` | STACKIT RabbitMQ instances with plan and service parameters. |
 | `modules/stackit/rabbitmq_credential` | STACKIT RabbitMQ credentials with API-generated passwords. |
 | `modules/stackit/redis_instance` | STACKIT Redis instances with plan and service parameters (deprecated upstream, use valkey). |
