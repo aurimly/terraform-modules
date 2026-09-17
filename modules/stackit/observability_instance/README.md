@@ -161,9 +161,9 @@ module "observability_instance" {
   literals.
 - Push URLs (`metrics_push_url`, `logs_push_url`) are not credentials
   but should be treated as semi-secret; write credentials come from
-  `stackit_observability_credential`, which is not covered here (nor
-  are alert groups, scrape configs, or load balancer observability
-  credentials). Grafana dashboards have no Terraform resource upstream
+  stackit/observability_credential (nor are alert groups, scrape
+  configs, or load balancer observability credentials covered here).
+  Grafana dashboards have no Terraform resource upstream
   — manage them via the Grafana UI/API.
 - `acl` is applied via a separate ACL endpoint after create/update, and
   the API re-lists it on every read: out-of-band ACL edits show up as
