@@ -112,6 +112,16 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/kms_key` | STACKIT KMS keys inside a keyring (destroy schedules deletion, keys are recoverable within the grace period). |
 | `modules/stackit/mongodbflex_instance` | STACKIT MongoDB Flex instances with flavor, storage, ACL, and backup options. |
 | `modules/stackit/mongodbflex_user` | STACKIT MongoDB Flex database users with roles and API-generated passwords. |
+| `modules/stackit/mariadb_instance` | STACKIT MariaDB instances with plan and service parameters. |
+| `modules/stackit/mariadb_credential` | STACKIT MariaDB credentials with API-generated passwords. |
+| `modules/stackit/opensearch_instance` | STACKIT OpenSearch instances with plan and service parameters. |
+| `modules/stackit/rabbitmq_instance` | STACKIT RabbitMQ instances with plan and service parameters. |
+| `modules/stackit/rabbitmq_credential` | STACKIT RabbitMQ credentials with API-generated passwords. |
+| `modules/stackit/redis_instance` | STACKIT Redis instances with plan and service parameters (deprecated upstream, use valkey). |
+| `modules/stackit/sqlserverflex_instance` | STACKIT SQLServer Flex instances with flavor, storage, ACL, and backup options. |
+| `modules/stackit/sqlserverflex_user` | STACKIT SQLServer Flex database users with roles and API-generated passwords. |
+| `modules/stackit/sqlserverflex_database` | STACKIT SQLServer Flex databases inside an existing instance. |
+| `modules/stackit/valkey_instance` | STACKIT Valkey instances with plan and service parameters. |
 | `modules/stackit/secrets_manager_user` | STACKIT Secrets Manager users with auto-generated credentials. |
 | `modules/stackit/public_ip_associate` | STACKIT associations of existing public IPs to network interfaces. |
 | `modules/stackit/server_volume_attach` | STACKIT attachments of existing volumes to servers. |
