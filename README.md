@@ -76,6 +76,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/cloud-composer` | Google Cloud Composer (Managed Airflow Gen 3) environments with software, workload, maintenance, and recovery config. |
 | `modules/gcp/notification-channels` | Google Cloud Monitoring notification channels (email, Slack, PagerDuty, webhook, ...) referenced by alert policies. |
 | `modules/gcp/vertex-ai` | Google Cloud Vertex AI prediction endpoints (PSC/PSA networking, CMEK, request-response logging, traffic split) and Model Garden model deployments. |
+| `modules/gcp/vertex-ai-dataset` | Google Cloud Vertex AI datasets with CMEK encryption and labels. |
+| `modules/gcp/vertex-ai-index` | Google Cloud Vertex AI Vector Search indexes (batch/stream update, tree-AH or brute force, CMEK). |
+| `modules/gcp/vertex-ai-index-endpoint` | Google Cloud Vertex AI Vector Search index endpoints (PSA/PSC/public) with deployed indexes. |
 | `modules/stackit/folder` | STACKIT Resource Manager folders under an organization or parent folder. |
 | `modules/stackit/project` | STACKIT Resource Manager projects under an organization or folder. |
 | `modules/stackit/organization_role_assignment` | STACKIT authorization role assignments on an organization. |
