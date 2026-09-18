@@ -54,6 +54,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/cloud-sql` | Google Cloud SQL PostgreSQL/MySQL instances with optional read replicas. |
 | `modules/gcp/alloydb` | Google Cloud AlloyDB clusters with instances, automated/continuous backup config, and on-demand backups. |
 | `modules/gcp/bigquery` | Google BigQuery datasets with IAM bindings and nested tables (partitioning, clustering, views, external data). |
+| `modules/gcp/spanner` | Google Cloud Spanner instances with databases, CMEK encryption, autoscaling, and IAM bindings. |
 | `modules/gcp/memorystore` | Google Cloud Memorystore Redis/Valkey instances. |
 | `modules/gcp/redis-cluster` | Google Cloud Memorystore for Redis Cluster instances with PSC endpoints and maintenance windows. |
 | `modules/gcp/bigtable` | Google Cloud Bigtable instances with clusters, tables, column families, GC policies, app profiles, and IAM bindings. |
@@ -64,6 +65,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/cloud-build` | Google Cloud Build triggers with inline or repo-defined builds and manual approval gates. |
 | `modules/gcp/cloud-functions` | Google Cloud Functions (2nd gen) with build/service/event-trigger config and optional IAM bindings. |
 | `modules/gcp/dataproc` | Google Cloud Dataproc clusters with GCE cluster config and IAM bindings. |
+| `modules/gcp/dataflow` | Google Cloud Dataflow jobs launched from classic templates. |
 | `modules/gcp/monitoring` | Google Cloud Monitoring dashboards and alert policies. |
 | `modules/gcp/secret-manager` | Google Secret Manager secrets with optional versions, replication, rotation, and IAM bindings. |
 | `modules/gcp/pubsub` | Google Pub/Sub topics with nested subscriptions (push/pull/BigQuery/Cloud Storage) and IAM bindings. |
