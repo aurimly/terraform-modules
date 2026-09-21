@@ -66,6 +66,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/cloud-functions` | Google Cloud Functions (2nd gen) with build/service/event-trigger config and optional IAM bindings. |
 | `modules/gcp/dataproc` | Google Cloud Dataproc clusters with GCE cluster config and IAM bindings. |
 | `modules/gcp/dataflow` | Google Cloud Dataflow jobs launched from classic templates. |
+| `modules/gcp/datastream` | Google Cloud Datastream private connections, connection profiles (MySQL, PostgreSQL, Oracle, SQL Server, MongoDB, GCS, BigQuery), and CDC streams. |
 | `modules/gcp/monitoring` | Google Cloud Monitoring dashboards and alert policies. |
 | `modules/gcp/secret-manager` | Google Secret Manager secrets with optional versions, replication, rotation, and IAM bindings. |
 | `modules/gcp/pubsub` | Google Pub/Sub topics with nested subscriptions (push/pull/BigQuery/Cloud Storage) and IAM bindings. |
