@@ -105,6 +105,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/ske` | STACKIT Kubernetes Engine clusters with node pools and optional kubeconfigs. |
 | `modules/stackit/ske_kubeconfig` | STACKIT short-lived SKE kubeconfigs for existing clusters, with expiry and in-place refresh. |
 | `modules/stackit/server` | STACKIT servers (virtual machines) booting from an image or boot volume. |
+| `modules/stackit/affinity_group` | STACKIT affinity groups (placement policies) referenced by servers. |
 | `modules/stackit/server_backup_enable` | STACKIT enabling of the server backup service (destroy disables it). |
 | `modules/stackit/server_backup_schedule` | STACKIT server backup schedules (RFC 5545 rrule, requires backup enable). |
 | `modules/stackit/server_update_enable` | STACKIT enabling of the server update service (destroy disables it). |
@@ -125,6 +126,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/mariadb_instance` | STACKIT MariaDB instances with plan and service parameters. |
 | `modules/stackit/mariadb_credential` | STACKIT MariaDB credentials with API-generated passwords. |
 | `modules/stackit/opensearch_instance` | STACKIT OpenSearch instances with plan and service parameters. |
+| `modules/stackit/opensearch_credential` | STACKIT OpenSearch credentials with API-generated passwords. |
 | `modules/stackit/logme_instance` | STACKIT LogMe instances with plan and service parameters. |
 | `modules/stackit/logme_credential` | STACKIT LogMe credentials with API-generated passwords. |
 | `modules/stackit/rabbitmq_instance` | STACKIT RabbitMQ instances with plan and service parameters. |
@@ -134,6 +136,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/sqlserverflex_user` | STACKIT SQLServer Flex database users with roles and API-generated passwords. |
 | `modules/stackit/sqlserverflex_database` | STACKIT SQLServer Flex databases inside an existing instance. |
 | `modules/stackit/valkey_instance` | STACKIT Valkey instances with plan and service parameters. |
+| `modules/stackit/valkey_credential` | STACKIT Valkey credentials with API-generated passwords. |
 | `modules/stackit/secrets_manager_user` | STACKIT Secrets Manager users with auto-generated credentials. |
 | `modules/stackit/public_ip_associate` | STACKIT associations of existing public IPs to network interfaces. |
 | `modules/stackit/server_volume_attach` | STACKIT attachments of existing volumes to servers. |
