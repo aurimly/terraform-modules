@@ -19,6 +19,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/aws/subnet` | AWS VPC subnets with IPv4/IPv6 CIDRs, AZ allocation, and public-IP assignment. |
 | `modules/aws/nat` | AWS NAT gateways with optional elastic IPs, public or private connectivity. |
 | `modules/aws/security-group` | AWS security groups with separate ingress and egress rule resources. |
+| `modules/aws/iam-role` | AWS IAM roles with trust policies, managed and inline policies, and optional instance profiles. |
+| `modules/aws/ec2-instance` | AWS EC2 instances with AMI via SSM lookup, EBS volumes, and instance profile pass-through. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
