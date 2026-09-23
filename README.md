@@ -23,6 +23,12 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/aws/ec2-instance` | AWS EC2 instances with AMI via SSM lookup, EBS volumes, and instance profile pass-through. |
 | `modules/aws/s3-bucket` | AWS S3 buckets with versioning, SSE, public access block, ownership controls, lifecycle, object lock, replication, and notifications. |
 | `modules/aws/dynamodb` | AWS DynamoDB tables with capacity modes, secondary indexes, streams, TTL, PITR, SSE, and deletion protection. |
+| `modules/aws/sqs` | AWS SQS queues with FIFO support, SSE, dead-letter redrive, and redrive-allow policies. |
+| `modules/aws/sns` | AWS SNS topics with FIFO support, topic policies, delivery feedback, and subscriptions with filter policies. |
+| `modules/aws/route53-zone` | AWS Route 53 hosted zones: public and private with VPC associations and delegation sets. |
+| `modules/aws/route53-records` | AWS Route 53 record sets across hosted zones with standard and alias records. |
+| `modules/aws/alb` | AWS load balancers (application, network, gateway) with target groups, attachments, listeners, and listener rules. |
+| `modules/aws/rds` | AWS RDS standalone DB instances and Aurora clusters with member instances, storage, backups, and encryption. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
