@@ -29,6 +29,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/aws/route53-records` | AWS Route 53 record sets across hosted zones with standard and alias records. |
 | `modules/aws/alb` | AWS load balancers (application, network, gateway) with target groups, attachments, listeners, and listener rules. |
 | `modules/aws/rds` | AWS RDS standalone DB instances and Aurora clusters with member instances, storage, backups, and encryption. |
+| `modules/aws/ecs-cluster` | AWS ECS clusters with container insights, execute-command configuration, and capacity provider strategies. |
+| `modules/aws/ecs-service` | AWS ECS services with task definitions, FARGATE/EC2 launch, networking, load balancer targets, and circuit breakers. |
+| `modules/aws/kms` | AWS KMS keys with rotation, multi-region, optional policy, and aliases. |
+| `modules/aws/lambda` | AWS Lambda functions with S3 packaging, VPC config, layers, event source mappings, and invocation permissions. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
