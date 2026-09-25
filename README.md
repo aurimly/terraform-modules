@@ -25,6 +25,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/aws/dynamodb` | AWS DynamoDB tables with capacity modes, secondary indexes, streams, TTL, PITR, SSE, and deletion protection. |
 | `modules/aws/sqs` | AWS SQS queues with FIFO support, SSE, dead-letter redrive, and redrive-allow policies. |
 | `modules/aws/sns` | AWS SNS topics with FIFO support, topic policies, delivery feedback, and subscriptions with filter policies. |
+| `modules/aws/site-to-site-vpn` | AWS Site-to-Site VPN: customer gateways, virtual private gateways, connections with VGW or Transit Gateway attachment, tunnel options, and static routes. |
 | `modules/aws/route53-zone` | AWS Route 53 hosted zones: public and private with VPC associations and delegation sets. |
 | `modules/aws/route53-records` | AWS Route 53 record sets across hosted zones with standard and alias records. |
 | `modules/aws/alb` | AWS load balancers (application, network, gateway) with target groups, attachments, listeners, and listener rules. |
@@ -51,6 +52,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/instance-group-manager` | Google Cloud zonal managed instance groups with optional autoscaling. |
 | `modules/gcp/instance-template` | Google Cloud instance templates for managed instance groups. |
 | `modules/gcp/firewall` | Google Cloud firewall rules (allow/deny) in a VPC network. |
+| `modules/gcp/ha-vpn` | Google Cloud HA VPN: gateways, peer (external) gateways, tunnels, and BGP sessions on Cloud Routers. |
 | `modules/gcp/nat` | Google Cloud Router and Cloud NAT gateways. |
 | `modules/gcp/static-ip` | Google Cloud regional and global static IP addresses. |
 | `modules/gcp/subnet` | Google Cloud subnetworks in a VPC network. |
