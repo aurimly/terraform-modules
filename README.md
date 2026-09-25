@@ -33,6 +33,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/aws/ecs-service` | AWS ECS services with task definitions, FARGATE/EC2 launch, networking, load balancer targets, and circuit breakers. |
 | `modules/aws/kms` | AWS KMS keys with rotation, multi-region, optional policy, and aliases. |
 | `modules/aws/lambda` | AWS Lambda functions with S3 packaging, VPC config, layers, event source mappings, and invocation permissions. |
+| `modules/aws/secrets-manager` | AWS Secrets Manager secrets with optional values, replica regions, recovery windows, KMS encryption, and rotation schedules. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
