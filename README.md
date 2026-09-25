@@ -33,6 +33,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/aws/ecs-cluster` | AWS ECS clusters with container insights, execute-command configuration, and capacity provider strategies. |
 | `modules/aws/ecs-service` | AWS ECS services with task definitions, FARGATE/EC2 launch, networking, load balancer targets, and circuit breakers. |
 | `modules/aws/ecr` | AWS ECR private repositories with tag mutability, scan-on-push, KMS/AES256 encryption, lifecycle and repository policies. |
+| `modules/aws/ecr-pull-through-cache` | AWS ECR pull-through cache rules for upstream container registries (Docker Hub, ECR, Quay, Kubernetes, GitHub/GitLab/Azure/Chainguard). |
 | `modules/aws/kms` | AWS KMS keys with rotation, multi-region, optional policy, and aliases. |
 | `modules/aws/lambda` | AWS Lambda functions with S3 packaging, VPC config, layers, event source mappings, and invocation permissions. |
 | `modules/aws/secrets-manager` | AWS Secrets Manager secrets with optional values, replica regions, recovery windows, KMS encryption, and rotation schedules. |
