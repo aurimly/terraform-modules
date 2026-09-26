@@ -37,6 +37,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/aws/kms` | AWS KMS keys with rotation, multi-region, optional policy, and aliases. |
 | `modules/aws/lambda` | AWS Lambda functions with S3 packaging, VPC config, layers, event source mappings, and invocation permissions. |
 | `modules/aws/secrets-manager` | AWS Secrets Manager secrets with optional values, replica regions, recovery windows, KMS encryption, and rotation schedules. |
+| `modules/aws/cloudfront` | AWS CloudFront distributions with origins (custom and S3 via OAC), cache behaviors, WAF, logging, aliases, and geo restrictions. |
+| `modules/aws/elasticache` | AWS ElastiCache Redis/Valkey replication groups and memcached clusters with subnet/parameter groups, auth, and snapshots. |
+| `modules/aws/cloudwatch` | AWS CloudWatch log groups, metric alarms, and dashboards. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
