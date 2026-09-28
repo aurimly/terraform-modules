@@ -41,6 +41,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/aws/elasticache` | AWS ElastiCache Redis/Valkey replication groups and memcached clusters with subnet/parameter groups, auth, and snapshots. |
 | `modules/aws/cloudwatch` | AWS CloudWatch log groups, metric alarms, and dashboards. |
 | `modules/aws/eks` | AWS EKS clusters with managed node groups, addon management, access entries and policy associations, and OIDC providers for IRSA. |
+| `modules/azure/subscription` | Azure subscriptions via the Alias API: new subscriptions under EA/MCA/MPA billing scopes, or adopting existing subscriptions. |
+| `modules/azure/subscription-iam` | Azure subscription RBAC role assignments for built-in and custom roles, with ABAC conditions. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
