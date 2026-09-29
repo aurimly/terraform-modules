@@ -50,6 +50,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/azure/public-ip` | Azure public IP addresses with SKU, allocation, DNS labels, zones, and DDoS protection options. |
 | `modules/azure/network-interface` | Azure network interfaces with IP configurations, DNS servers, and accelerated networking. |
 | `modules/azure/virtual-machine` | Azure virtual machines (Linux and Windows) with OS disks, source images, and SSH/password auth. |
+| `modules/azure/managed-identity` | Azure user-assigned managed identities with tags, created in the provider's subscription. |
+| `modules/azure/storage-account` | Azure storage accounts with redundancy, TLS/HTTPS policy, network rules, and public access controls. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
