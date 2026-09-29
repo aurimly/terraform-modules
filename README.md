@@ -47,6 +47,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/azure/virtual-network` | Azure virtual networks with DNS servers, BGP community, flow timeout, and DDoS/encryption options. |
 | `modules/azure/subnet` | Azure subnets with address prefixes, delegations, service endpoints, and private-endpoint policies. |
 | `modules/azure/network-security-group` | Azure network security groups with security rules as separate rule resources. |
+| `modules/azure/public-ip` | Azure public IP addresses with SKU, allocation, DNS labels, zones, and DDoS protection options. |
+| `modules/azure/network-interface` | Azure network interfaces with IP configurations, DNS servers, and accelerated networking. |
+| `modules/azure/virtual-machine` | Azure virtual machines (Linux and Windows) with OS disks, source images, and SSH/password auth. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
