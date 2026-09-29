@@ -44,6 +44,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/azure/subscription` | Azure subscriptions via the Alias API: new subscriptions under EA/MCA/MPA billing scopes, or adopting existing subscriptions. |
 | `modules/azure/subscription-iam` | Azure subscription RBAC role assignments for built-in and custom roles, with ABAC conditions. |
 | `modules/azure/resource-group` | Azure resource groups with tags and managed-by metadata, created in the provider's subscription. |
+| `modules/azure/virtual-network` | Azure virtual networks with DNS servers, BGP community, flow timeout, and DDoS/encryption options. |
+| `modules/azure/subnet` | Azure subnets with address prefixes, delegations, service endpoints, and private-endpoint policies. |
+| `modules/azure/network-security-group` | Azure network security groups with security rules as separate rule resources. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
