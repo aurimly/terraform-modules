@@ -67,6 +67,15 @@ nat_gateways = {
   IPs/prefixes; a `StandardV2` gateway requires `StandardV2`. IPv6 addresses
   require a StandardV2 gateway. The API rejects mismatched combinations — this
   module passes the IDs through and the error surfaces at apply.
+- **Density: up to 16 addresses.** A gateway attaches IPs and prefixes in
+  any combination totaling at most 16 addresses: `Standard` up to 16 IPv4
+  addresses (IPv6 is not supported), `StandardV2` up to 16 IPv4 plus 16
+  IPv6 simultaneously. A prefix counts by its size — /28 is 16 addresses,
+  /29 is 8, /30 is 4, /31 is 2. Prefix sizes and IP versions cannot be
+  derived from ARM resource IDs, so this module's plan-time validation
+  only rejects the unambiguous bounds (17+ address resources on
+  `Standard`, 33+ on `StandardV2`) and the API enforces the combined cap
+  at apply. Each address adds 64,512 SNAT ports to the inventory.
 - **A gateway with no IPs is valid but useless.** Azure lets you create a bare
   NAT gateway; it provides no outbound address until associated — attach
   `public_ip_address_ids` or `public_ip_prefix_ids` in practice.
