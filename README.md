@@ -15,6 +15,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/github/repository` | GitHub repository settings and branch protection. |
 | `modules/equinix/fabric_cloud_router` | Equinix Fabric Cloud Routers (FCR). |
 | `modules/equinix/fabric_connection` | Equinix Fabric connections: port, cloud router, virtual device, service token, and service-provider endpoints. |
+| `modules/hetzner/network` | Hetzner Cloud networks with RFC1918 ranges, labels, and vSwitch route exposure. |
+| `modules/hetzner/zone` | Hetzner Cloud DNS zones, primary or secondary, with primary nameservers and TSIG. |
+| `modules/hetzner/floating_ip` | Hetzner Cloud floating IPs with home location or server assignment. |
+| `modules/hetzner/firewall` | Hetzner Cloud firewalls with rules and server/label-selector attachments. |
 | `modules/aws/vpc` | AWS VPCs with DNS settings, tenancy, IPAM IPv4 and generated IPv6 CIDRs. |
 | `modules/aws/subnet` | AWS VPC subnets with IPv4/IPv6 CIDRs, AZ allocation, and public-IP assignment. |
 | `modules/aws/nat` | AWS NAT gateways with optional elastic IPs, public or private connectivity. |
