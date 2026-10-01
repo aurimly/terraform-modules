@@ -58,6 +58,20 @@ variable "nat_gateways" {
 
   validation {
     condition = alltrue([
+      for gateway in var.nat_gateways : gateway.sku_name == "StandardV2" || length(gateway.public_ip_address_ids) <= 16
+    ])
+    error_message = "a Standard NAT gateway accepts at most 16 public IP addresses (IPv4 only)."
+  }
+
+  validation {
+    condition = alltrue([
+      for gateway in var.nat_gateways : gateway.sku_name != "StandardV2" || length(gateway.public_ip_address_ids) <= 32
+    ])
+    error_message = "a StandardV2 NAT gateway accepts at most 32 public IP addresses in total (16 IPv4 plus 16 IPv6). Prefixes are not counted here — their size cannot be derived from the resource ID and the API enforces the combined 16-address-of-each-version total at apply."
+  }
+
+  validation {
+    condition = alltrue([
       for gateway in var.nat_gateways : gateway.idle_timeout_in_minutes >= 4 && gateway.idle_timeout_in_minutes <= 120
     ])
     error_message = "idle_timeout_in_minutes must be between 4 and 120 inclusive (Azure-enforced range)."
