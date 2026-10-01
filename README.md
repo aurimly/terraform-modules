@@ -57,6 +57,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/azure/dns-records` | Azure DNS record sets (A, AAAA, CAA, CNAME, MX, NS, PTR, SRV, TXT) in public or private zones. |
 | `modules/azure/aks` | Azure Kubernetes Service clusters with default and additional node pools, Azure CNI/kubenet networking, private clusters, workload identity, and maintenance windows. |
 | `modules/azure/nat-gateway` | Azure NAT gateways with public IP and prefix associations. |
+| `modules/azure/nat-gateway-association` | Azure subnet-to-NAT gateway associations for outbound SNAT routing. |
 | `modules/azure/private-endpoint` | Azure private endpoints with service connections, private DNS zones, and virtual network links. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
