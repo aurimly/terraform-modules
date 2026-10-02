@@ -19,6 +19,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/hetzner/zone` | Hetzner Cloud DNS zones, primary or secondary, with primary nameservers and TSIG. |
 | `modules/hetzner/floating_ip` | Hetzner Cloud floating IPs with home location or server assignment. |
 | `modules/hetzner/firewall` | Hetzner Cloud firewalls with rules and server/label-selector attachments. |
+| `modules/hetzner/placement_group` | Hetzner Cloud placement groups (spread) with labels. |
+| `modules/hetzner/server` | Hetzner Cloud servers with images, cloud-init, primary IPs, private networks, firewalls, and placement groups. |
+| `modules/hetzner/ssh_key` | Hetzner Cloud SSH keys for server authentication. |
+| `modules/hetzner/volume` | Hetzner Cloud volumes with optional server attachment and formatting. |
 | `modules/aws/vpc` | AWS VPCs with DNS settings, tenancy, IPAM IPv4 and generated IPv6 CIDRs. |
 | `modules/aws/subnet` | AWS VPC subnets with IPv4/IPv6 CIDRs, AZ allocation, and public-IP assignment. |
 | `modules/aws/nat` | AWS NAT gateways with optional elastic IPs, public or private connectivity. |
