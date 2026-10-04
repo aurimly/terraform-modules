@@ -24,6 +24,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/hetzner/ssh_key` | Hetzner Cloud SSH keys for server authentication. |
 | `modules/hetzner/volume` | Hetzner Cloud volumes with optional server attachment and formatting. |
 | `modules/hetzner/load_balancer` | Hetzner Cloud load balancers with services (HTTP/HTTPS/TCP), health checks, sticky sessions, and server/label-selector/IP targets. |
+| `modules/hetzner/certificate` | Hetzner Cloud TLS certificates: Hetzner-managed by domain names or uploaded PEM certificates with private keys. |
+| `modules/hetzner/primary_ip` | Hetzner Cloud primary IPs, unassigned in a location or assigned to a server. |
+| `modules/hetzner/rdns` | Hetzner Cloud reverse DNS entries for servers, primary IPs, floating IPs, and load balancers. |
 | `modules/aws/vpc` | AWS VPCs with DNS settings, tenancy, IPAM IPv4 and generated IPv6 CIDRs. |
 | `modules/aws/subnet` | AWS VPC subnets with IPv4/IPv6 CIDRs, AZ allocation, and public-IP assignment. |
 | `modules/aws/nat` | AWS NAT gateways with optional elastic IPs, public or private connectivity. |
