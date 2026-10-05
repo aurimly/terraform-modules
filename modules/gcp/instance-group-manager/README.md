@@ -1,12 +1,12 @@
 # gcp/instance-group-manager
 
-Map-keyed module for zonal Google Cloud managed instance groups (MIGs) with optional autoscaling.
+Map-keyed module for zonal and regional Google Cloud managed instance groups (MIGs) with optional autoscaling.
 
 ## Inputs
 
 | Name | Type | Default | Description |
 |---|---|---|---|
-| `managers` | `map(object)` | — | Map of managed instance groups keyed by an arbitrary unique ID; each entry creates one `google_compute_instance_group_manager` plus, when `autoscaler` is set, one `google_compute_autoscaler` targeting it. |
+| `managers` | `map(object)` | — | Map of managed instance groups keyed by an arbitrary unique ID; each entry creates one `google_compute_instance_group_manager` (zonal) or `google_compute_region_instance_group_manager` (regional) plus, when `autoscaler` is set, one `google_compute_autoscaler` or `google_compute_region_autoscaler` targeting it. |
 
 ### `managers` object
 
@@ -14,7 +14,8 @@ Map-keyed module for zonal Google Cloud managed instance groups (MIGs) with opti
 |---|---|---|---|
 | `name` | `string` | — | MIG name; 1–63 lowercase RFC1035 characters. Validated client-side. Immutable; changing forces replacement. |
 | `base_instance_name` | `string` | — | Prefix for instance names created by the group (`<base>-<suffix>`); RFC1035-validated. Immutable; changing forces replacement. |
-| `zone` | `string` | — | GCP zone the group lives in (e.g. `us-central1-a`). Shape-validated, not a zone list. |
+| `zone` | `string` | — | GCP zone the group lives in (e.g. `us-central1-a`), for a zonal entry. Mutually exclusive with `region` — exactly one of the two is required per entry (validated). Shape-validated, not a zone list. |
+| `region` | `string` | — | GCP region for a regional (multi-zone) group (e.g. `us-central1`). Mutually exclusive with `zone` (validated). Shape-validated, not a region list. |
 | `versions` | `list(object)` | — | One or more; exactly one entry must omit `target_size` (API-enforced, validated). See the `versions` table. |
 | `target_size` | `number` | — | Desired instance count. Omit when `autoscaler` is set (Terraform would fight the autoscaler on every apply) and note that omitting both creates an empty group. |
 | `project_id` | `string` | — | Project the group lives in; defaults to the provider-level project. Format validated. |
@@ -35,7 +36,9 @@ Map-keyed module for zonal Google Cloud managed instance groups (MIGs) with opti
 | `standby_policy` | `object` | — | `{mode (MANUAL/SCALE_OUT_POOL), initial_delay_sec (0–3600)}` (validated); pair with `target_stopped_size`/`target_suspended_size` for suspended/stopped pools. |
 | `target_stopped_size` | `number` | — | Target number of stopped (standby) instances; ≥ 0 (validated). |
 | `target_suspended_size` | `number` | — | Target number of suspended instances; ≥ 0 (validated). |
-| `autoscaler` | `object` | — | Presence creates a `google_compute_autoscaler` targeting this group; see the `autoscaler` table. Its `name` defaults to the MIG name. |
+| `distribution_policy_zones` | `list(string)` | — | Regional MIGs only (validated): zones the group may place instances in; each must lie in `region` (shape-validated). |
+| `distribution_policy_target_shape` | `string` | — | Regional MIGs only: `EVEN` (default), `BALANCED`, `ANY`, `ANY_SINGLE_ZONE` (validated). |
+| `autoscaler` | `object` | — | Presence creates a `google_compute_autoscaler` (zonal entry) or `google_compute_region_autoscaler` (regional entry) targeting this group; see the `autoscaler` table. Its `name` defaults to the MIG name. |
 
 ### `versions` entry
 
@@ -57,6 +60,7 @@ Map-keyed module for zonal Google Cloud managed instance groups (MIGs) with opti
 | `max_unavailable_fixed` | `number` | — | Instances that may be unavailable during updates; conflicts with `max_unavailable_percent` (validated). |
 | `max_unavailable_percent` | `number` | — | 0–100 inclusive (validated). |
 | `replacement_method` | `string` | — | `RECREATE` (names preserved) or `SUBSTITUTE` (default; new random names); `RECREATE` requires `max_unavailable_fixed` or `max_unavailable_percent` > 0 (validated). |
+| `instance_redistribution_type` | `string` | — | Regional MIGs only: `PROACTIVE` (default; even cross-zone redistribution) or `NONE` (validated). `NONE` is required before changing stateful disk/IP configuration on an existing regional MIG. |
 
 ### `autoscaler` object
 
@@ -85,11 +89,13 @@ Map-keyed module for zonal Google Cloud managed instance groups (MIGs) with opti
 ## Outputs
 
 `manager_names` — map of manager key => MIG name.
-`manager_ids` — map of manager key => MIG ID (`projects/{project}/zones/{zone}/instanceGroupManagers/{name}`).
+`manager_ids` — map of manager key => MIG ID (zonal `projects/{project}/zones/{zone}/instanceGroupManagers/{name}`; regional `projects/{project}/regions/{region}/instanceGroupManagers/{name}`).
 `manager_self_links` — map of manager key => MIG self link.
-`instance_group_urls` — map of manager key => underlying instance group URL; pass this to backend services.
+`instance_group_urls` — map of manager key => underlying instance group URL; pass this to backend services (regional entries produce regional instance group URLs, which attach to regional backend services).
 `autoscaler_names` — map of manager key => autoscaler name (only for entries with an autoscaler).
 `autoscaler_self_links` — map of manager key => autoscaler self link (only for entries with an autoscaler).
+
+All output maps cover zonal and regional entries under the same keys.
 
 ## Example
 
@@ -144,6 +150,27 @@ managers = {
       }
     }
   }
+  "web-regional" = {
+    name                             = "example-web-regional"
+    base_instance_name               = "example-web-reg"
+    region                           = "us-central1"
+    distribution_policy_zones        = ["us-central1-a", "us-central1-f"]
+    distribution_policy_target_shape = "EVEN"
+    versions = [
+      {
+        instance_template = "https://www.googleapis.com/compute/v1/projects/example-project-1234/global/instanceTemplates/example-web-20260907abc123def4"
+      },
+    ]
+    autoscaler = {
+      autoscaling_policy = {
+        min_replicas = 3
+        max_replicas = 12
+        cpu_utilization = {
+          target = 0.6
+        }
+      }
+    }
+  }
 }
 ```
 
@@ -191,15 +218,25 @@ managers = {
 - Stateful disks/IPs are keyed by device/interface name and survive VM
   recreation; `delete_rule` controls what happens on permanent instance
   deletion (`NEVER` detaches, `ON_PERMANENT_INSTANCE_DELETION` deletes).
-- Zonal only: regional MIGs (`google_compute_region_instance_group_manager`)
-  are future scope.
+- Regional MIGs newly default to proactive cross-zone instance
+  redistribution (`instance_redistribution_type = "PROACTIVE"`); set `NONE`
+  before changing stateful disk/IP configuration on an existing regional MIG.
+- `distribution_policy_target_shape = "ANY_SINGLE_ZONE"` converges the group
+  onto a single zone; pick the zone via a one-entry
+  `distribution_policy_zones` list.
+- The regional autoscaler (`google_compute_region_autoscaler`) targets its
+  regional MIG automatically — same `autoscaler` block shape as zonal.
+- Regional `instance_group_urls` attach to regional backend services; zonal
+  URLs attach to zonal backends of global backend services.
 - Pair with `gcp/instance-template` (versions), `gcp/firewall` (instance
   network tags), and `gcp/static-ip` (stateful external IPs).
 
-- Not yet in scope (future additions): regional instance group managers and
-  regional autoscalers, `update_policy.min_ready_sec` (beta-gated on the
-  stable provider; the reference modules exposed it via google-beta),
-  `params` (beta), `target_size_policy`, `resource_policies.workload_policy`,
+- Not yet in scope (future additions): `instance_flexibility_policy`
+  (regional-only; GA on the stable provider but its `min_cpu_platform`/`disks`
+  sub-attributes are beta-only — purely additive when it lands),
+  `update_policy.min_ready_sec` (beta-gated on the stable provider; the
+  reference modules exposed it via google-beta), `params` (beta),
+  `target_size_policy`, `resource_policies.workload_policy`,
   and autoscaler `scale_down_control` (beta-gated on the stable provider).
 
 ## Import
@@ -209,6 +246,15 @@ managers = {
 `{project}/{zone}/{name}`, `{project}/{name}`, and the bare `{name}` within
 the provider's default zone).
 
+`google_compute_region_instance_group_manager` ← the bare `{name}` per the
+provider docs (the importer additionally accepts
+`projects/{project}/regions/{region}/instanceGroupManagers/{name}`,
+`{project}/{region}/{name}`, and `{region}/{name}`).
+
 `google_compute_autoscaler` ←
 `projects/{project}/zones/{zone}/autoscalers/{name}` (also
 `{project}/{zone}/{name}`, `{project}/{name}`, and the bare `{name}`).
+
+`google_compute_region_autoscaler` ←
+`projects/{project}/regions/{region}/autoscalers/{name}` (also
+`{project}/{region}/{name}`, `{region}/{name}`, and the bare `{name}`).
