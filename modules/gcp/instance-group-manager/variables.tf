@@ -1,9 +1,10 @@
 variable "managers" {
-  description = "Map of zonal managed instance groups keyed by an arbitrary identifier. Each entry creates one google_compute_instance_group_manager plus an optional google_compute_autoscaler. Chain template self links from gcp/instance-template into versions.instance_template."
+  description = "Map of zonal or regional managed instance groups keyed by an arbitrary identifier. Each entry creates one google_compute_instance_group_manager (zonal) or google_compute_region_instance_group_manager (regional) plus an optional autoscaler (google_compute_autoscaler or google_compute_region_autoscaler respectively). Set exactly one of zone or region per entry. Chain template self links from gcp/instance-template into versions.instance_template."
   type = map(object({
     name               = string
     base_instance_name = string
-    zone               = string
+    zone               = optional(string)
+    region             = optional(string)
     versions = list(object({
       instance_template = string
       name              = optional(string)
@@ -50,6 +51,7 @@ variable "managers" {
       max_unavailable_fixed          = optional(number)
       max_unavailable_percent        = optional(number)
       replacement_method             = optional(string)
+      instance_redistribution_type   = optional(string)
     }))
     instance_lifecycle_policy = optional(object({
       force_update_on_repair    = optional(string)
@@ -63,8 +65,10 @@ variable "managers" {
       initial_delay_sec = optional(number)
       mode              = optional(string)
     }))
-    target_stopped_size   = optional(number)
-    target_suspended_size = optional(number)
+    target_stopped_size              = optional(number)
+    target_suspended_size            = optional(number)
+    distribution_policy_zones        = optional(list(string))
+    distribution_policy_target_shape = optional(string)
     autoscaler = optional(object({
       name        = optional(string)
       description = optional(string)
@@ -115,8 +119,38 @@ variable "managers" {
   }
 
   validation {
-    condition     = alltrue([for m in var.managers : can(regex("^[a-z]+-[a-z]+[0-9]+-[a-z]$", m.zone))])
+    condition     = alltrue([for m in var.managers : m.zone == null || can(regex("^[a-z]+-[a-z]+[0-9]+-[a-z]$", m.zone))])
     error_message = "zone must look like a GCP zone name (e.g. us-central1-a); it is a shape check, not a list of valid zones."
+  }
+
+  validation {
+    condition     = alltrue([for m in var.managers : m.region == null || can(regex("^[a-z]+-[a-z]+[0-9]+$", m.region))])
+    error_message = "region must look like a GCP region name (e.g. us-central1); it is a shape check, not a list of valid regions."
+  }
+
+  validation {
+    condition     = alltrue([for m in var.managers : (m.zone != null) != (m.region != null)])
+    error_message = "exactly one of zone (zonal MIG) or region (regional MIG) must be set per manager; they are mutually exclusive."
+  }
+
+  validation {
+    condition     = alltrue([for m in var.managers : m.zone == null || (m.distribution_policy_zones == null && m.distribution_policy_target_shape == null && (m.update_policy == null || m.update_policy.instance_redistribution_type == null))])
+    error_message = "distribution_policy_zones, distribution_policy_target_shape and update_policy.instance_redistribution_type are regional MIG attributes; set region instead of zone to use them."
+  }
+
+  validation {
+    condition     = alltrue([for m in var.managers : m.distribution_policy_target_shape == null || contains(["EVEN", "BALANCED", "ANY", "ANY_SINGLE_ZONE"], m.distribution_policy_target_shape)])
+    error_message = "distribution_policy_target_shape must be one of EVEN, BALANCED, ANY or ANY_SINGLE_ZONE (case-sensitive)."
+  }
+
+  validation {
+    condition     = alltrue([for m in var.managers : m.distribution_policy_zones == null || (m.region != null && alltrue([for z in m.distribution_policy_zones : can(regex("^[a-z]+-[a-z]+[0-9]+-[a-z]$", z)) && can(regex("^${m.region}-", z))]))])
+    error_message = "distribution_policy_zones entries must look like zone names (e.g. us-central1-a) within the manager's region; it is a shape check, not a list of valid zones."
+  }
+
+  validation {
+    condition     = alltrue([for m in var.managers : m.update_policy == null || m.update_policy.instance_redistribution_type == null || contains(["PROACTIVE", "NONE"], m.update_policy.instance_redistribution_type)])
+    error_message = "update_policy.instance_redistribution_type must be PROACTIVE or NONE (case-sensitive)."
   }
 
   validation {

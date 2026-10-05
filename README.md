@@ -84,7 +84,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/project-services` | Google Cloud project API (service) enablement. |
 | `modules/gcp/compute-instance` | Google Cloud compute instances with optional disks and IAM bindings. |
 | `modules/gcp/compute-disk` | Google Cloud persistent disks, snapshots, snapshot schedules, and schedule attachments. |
-| `modules/gcp/instance-group-manager` | Google Cloud zonal managed instance groups with optional autoscaling. |
+| `modules/gcp/instance-group-manager` | Google Cloud zonal and regional managed instance groups with optional autoscaling. |
 | `modules/gcp/instance-template` | Google Cloud instance templates for managed instance groups. |
 | `modules/gcp/firewall` | Google Cloud firewall rules (allow/deny) in a VPC network. |
 | `modules/gcp/ha-vpn` | Google Cloud HA VPN: gateways, peer (external) gateways, tunnels, and BGP sessions on Cloud Routers. |
