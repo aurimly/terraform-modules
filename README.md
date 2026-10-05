@@ -9,6 +9,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/cloudflare/zone` | Cloudflare zones and granular zone settings. |
 | `modules/cloudflare/dns-records` | Cloudflare DNS records in a single zone. |
 | `modules/cloudflare/worker-domains` | Cloudflare Workers custom domains. |
+| `modules/cloudflare/r2_bucket` | Cloudflare R2 buckets with location, jurisdiction, and storage class. |
+| `modules/cloudflare/workers_script` | Cloudflare Worker records (observability, subdomain, tags, tail consumers); script content stays with wrangler. |
+| `modules/cloudflare/workers_route` | Cloudflare Workers routes attaching URL patterns to Worker scripts. |
+| `modules/cloudflare/tunnel` | Cloudflare Tunnels (cloudflared) with tunnel routes and optional remote ingress config. |
 | `modules/ns1/zone` | NS1 zones: primary, linked, secondary with TSIG, DNSSEC. |
 | `modules/ns1/record` | NS1 DNS records with filter chains, regions, and answers. |
 | `modules/ns1/redirect` | NS1 URL redirects. |
