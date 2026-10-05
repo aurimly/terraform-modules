@@ -71,6 +71,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/azure/nat-gateway` | Azure NAT gateways with public IP and prefix associations. |
 | `modules/azure/nat-gateway-association` | Azure subnet-to-NAT gateway associations for outbound SNAT routing. |
 | `modules/azure/private-endpoint` | Azure private endpoints with service connections, private DNS zones, and virtual network links. |
+| `modules/azure/mysql` | Azure MySQL Flexible Servers with databases, firewall rules, replicas/PITR, HA, and storage tuning. |
+| `modules/azure/postgresql` | Azure PostgreSQL Flexible Servers with databases, firewall rules, replicas/PITR/GeoRestore, HA, and storage tuning. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
