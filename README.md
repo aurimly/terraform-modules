@@ -13,6 +13,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/cloudflare/workers_script` | Cloudflare Worker records (observability, subdomain, tags, tail consumers); script content stays with wrangler. |
 | `modules/cloudflare/workers_route` | Cloudflare Workers routes attaching URL patterns to Worker scripts. |
 | `modules/cloudflare/tunnel` | Cloudflare Tunnels (cloudflared) with tunnel routes and optional remote ingress config. |
+| `modules/cloudflare/load-balancer` | Cloudflare load balancers with health monitors, origin pools, and failover/steering wiring. |
+| `modules/cloudflare/ruleset` | Cloudflare zone rulesets: WAF custom rules, rate limiting, transforms, redirects, and origin overrides. |
+| `modules/cloudflare/access` | Cloudflare Zero Trust Access: identity providers, reusable policies, and applications. |
+| `modules/cloudflare/origin-ca-certificate` | Cloudflare Origin CA certificates issued from a CSR. |
 | `modules/ns1/zone` | NS1 zones: primary, linked, secondary with TSIG, DNSSEC. |
 | `modules/ns1/record` | NS1 DNS records with filter chains, regions, and answers. |
 | `modules/ns1/redirect` | NS1 URL redirects. |
