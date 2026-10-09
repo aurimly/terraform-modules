@@ -61,6 +61,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/aws/elasticache` | AWS ElastiCache Redis/Valkey replication groups and memcached clusters with subnet/parameter groups, auth, and snapshots. |
 | `modules/aws/cloudwatch` | AWS CloudWatch log groups, metric alarms, and dashboards. |
 | `modules/aws/eks` | AWS EKS clusters with managed node groups, addon management, access entries and policy associations, and OIDC providers for IRSA. |
+| `modules/aws/acm` | AWS Certificate Manager certificates with DNS/email/Private CA validation and in-module Route 53 validation records. |
+| `modules/aws/efs` | AWS EFS file systems with lifecycle policies, throughput/performance modes, encryption, mount targets, and access points. |
+| `modules/aws/route53-resolver` | AWS Route 53 Resolver endpoints (inbound, outbound, inbound-delegation), forward/system/recursive rules, and DNSSEC validation configs. |
+| `modules/aws/transit-gateway` | AWS Transit Gateway: gateways, route tables, VPC and peering attachments with accepters, and static routes. |
 | `modules/azure/subscription` | Azure subscriptions via the Alias API: new subscriptions under EA/MCA/MPA billing scopes, or adopting existing subscriptions. |
 | `modules/azure/subscription-iam` | Azure subscription RBAC role assignments for built-in and custom roles, with ABAC conditions. |
 | `modules/azure/resource-group` | Azure resource groups with tags and managed-by metadata, created in the provider's subscription. |
