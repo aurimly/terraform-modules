@@ -21,6 +21,12 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/ns1/record` | NS1 DNS records with filter chains, regions, and answers. |
 | `modules/ns1/redirect` | NS1 URL redirects. |
 | `modules/github/repository` | GitHub repository settings and branch protection. |
+| `modules/github/branch-protection` | GitHub branch protection for existing repositories. |
+| `modules/github/team` | GitHub teams with nested membership and parent-team wiring. |
+| `modules/github/actions-secrets` | GitHub Actions repository secrets keyed by secret name. |
+| `modules/github/actions-variables` | GitHub Actions repository variables keyed by variable name. |
+| `modules/github/repository-environments` | GitHub deployment environments with reviewers, branch policies, and nested secrets/variables. |
+| `modules/github/deploy-key` | GitHub repository deploy keys with read-only flag. |
 | `modules/equinix/fabric_cloud_router` | Equinix Fabric Cloud Routers (FCR). |
 | `modules/equinix/fabric_connection` | Equinix Fabric connections: port, cloud router, virtual device, service token, and service-provider endpoints. |
 | `modules/hetzner/network` | Hetzner Cloud networks with RFC1918 ranges, labels, and vSwitch route exposure. |
