@@ -85,6 +85,11 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/azure/private-endpoint` | Azure private endpoints with service connections, private DNS zones, and virtual network links. |
 | `modules/azure/mysql` | Azure MySQL Flexible Servers with databases, firewall rules, replicas/PITR, HA, and storage tuning. |
 | `modules/azure/postgresql` | Azure PostgreSQL Flexible Servers with databases, firewall rules, replicas/PITR/GeoRestore, HA, and storage tuning. |
+| `modules/azure/redis` | Azure Cache for Redis with persistence, patch schedules, firewall rules, and geo-replication between same-call caches. |
+| `modules/azure/cosmos-db` | Cosmos DB accounts with SQL databases/containers (and Mongo ones) covering consistency, failover regions, backup, and restore. |
+| `modules/azure/container-registry` | Azure Container Registries with georeplication, network rules, webhooks, scope maps, and tokens. |
+| `modules/azure/application-gateway` | Azure Application Gateways (v2) with autoscale, frontends, Key Vault TLS, listeners, path-based routing, and probes. |
+| `modules/azure/log-analytics` | Azure Log Analytics workspaces with linked services and linked storage accounts. |
 | `modules/azure/firewall` | Azure Firewalls (VNet and secure-hub) with optional policies, rule collection groups, and in-module public IPs. |
 | `modules/azure/app-service` | Azure App Service plans with Linux/Windows web apps, site config, identities, and deployment slots. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
