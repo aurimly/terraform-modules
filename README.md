@@ -100,6 +100,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/azure/log-analytics` | Azure Log Analytics workspaces with linked services and linked storage accounts. |
 | `modules/azure/firewall` | Azure Firewalls (VNet and secure-hub) with optional policies, rule collection groups, and in-module public IPs. |
 | `modules/azure/app-service` | Azure App Service plans with Linux/Windows web apps, site config, identities, and deployment slots. |
+| `modules/azure/container-app-environment` | Azure Container Apps managed environments with Log Analytics/Azure Monitor logging, workload profiles, VNet injection, and zone redundancy. |
+| `modules/azure/container-app` | Azure Container Apps with containers, probes, scale rules, volumes, ingress, secrets, registries, Dapr, and managed identities. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
