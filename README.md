@@ -25,7 +25,11 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/github/team` | GitHub teams with nested membership and parent-team wiring. |
 | `modules/github/actions-secrets` | GitHub Actions repository secrets keyed by secret name. |
 | `modules/github/actions-variables` | GitHub Actions repository variables keyed by variable name. |
+| `modules/github/actions-organization-secrets` | GitHub Actions organization secrets with visibility and per-secret repository allow-lists. |
+| `modules/github/actions-organization-variables` | GitHub Actions organization variables with visibility and per-variable repository scoping. |
+| `modules/github/issue-labels` | GitHub repository issue labels keyed by display name. |
 | `modules/github/repository-environments` | GitHub deployment environments with reviewers, branch policies, and nested secrets/variables. |
+| `modules/github/webhook` | GitHub repository and organization webhooks with payload configuration. |
 | `modules/github/deploy-key` | GitHub repository deploy keys with read-only flag. |
 | `modules/equinix/fabric_cloud_router` | Equinix Fabric Cloud Routers (FCR). |
 | `modules/equinix/fabric_connection` | Equinix Fabric connections: port, cloud router, virtual device, service token, and service-provider endpoints. |
@@ -100,6 +104,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/azure/log-analytics` | Azure Log Analytics workspaces with linked services and linked storage accounts. |
 | `modules/azure/firewall` | Azure Firewalls (VNet and secure-hub) with optional policies, rule collection groups, and in-module public IPs. |
 | `modules/azure/app-service` | Azure App Service plans with Linux/Windows web apps, site config, identities, and deployment slots. |
+| `modules/azure/functions` | Azure Function Apps (Linux/Windows) with service plans, storage binding, app settings, and returned host keys. |
 | `modules/azure/container-app-environment` | Azure Container Apps managed environments with Log Analytics/Azure Monitor logging, workload profiles, VNet injection, and zone redundancy. |
 | `modules/azure/container-app` | Azure Container Apps with containers, probes, scale rules, volumes, ingress, secrets, registries, Dapr, and managed identities. |
 | `modules/azure/monitor` | Azure Monitor action groups, metric alerts, activity log alerts, scheduled query rules, and diagnostic settings. |
