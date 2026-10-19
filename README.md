@@ -86,6 +86,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/azure/virtual-machine` | Azure virtual machines (Linux and Windows) with OS disks, source images, and SSH/password auth. |
 | `modules/azure/managed-identity` | Azure user-assigned managed identities with tags, created in the provider's subscription. |
 | `modules/azure/service-bus` | Azure Service Bus namespaces with queues, topics, subscriptions, subscription rules, and per-scope SAS authorization rules. |
+| `modules/azure/sql` | Azure SQL Database servers (`azurerm_mssql_*`) with databases, firewall rules, elastic pools, failover groups, Entra admin, and CMK TDE. |
 | `modules/azure/event-hubs` | Azure Event Hubs namespaces with event hubs, consumer groups, capture-to-storage, and per-scope SAS authorization rules. |
 | `modules/azure/storage-account` | Azure storage accounts with redundancy, TLS/HTTPS policy, network rules, and public access controls. |
 | `modules/azure/key-vault` | Azure key vaults with RBAC or legacy access policies, network ACLs, and nested keys, secrets, and certificates. |
@@ -101,6 +102,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/azure/cosmos-db` | Cosmos DB accounts with SQL databases/containers (and Mongo ones) covering consistency, failover regions, backup, and restore. |
 | `modules/azure/container-registry` | Azure Container Registries with georeplication, network rules, webhooks, scope maps, and tokens. |
 | `modules/azure/application-gateway` | Azure Application Gateways (v2) with autoscale, frontends, Key Vault TLS, listeners, path-based routing, and probes. |
+| `modules/azure/load-balancer` | Azure Standard load balancers with frontends (in-module or existing public IPs, or private), backend pools with IP/NIC members, probes, rules, NAT rules, NAT pools, and outbound rules. |
 | `modules/azure/log-analytics` | Azure Log Analytics workspaces with linked services and linked storage accounts. |
 | `modules/azure/firewall` | Azure Firewalls (VNet and secure-hub) with optional policies, rule collection groups, and in-module public IPs. |
 | `modules/azure/app-service` | Azure App Service plans with Linux/Windows web apps, site config, identities, and deployment slots. |
