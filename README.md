@@ -151,6 +151,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/logging` | Google Cloud log sinks to Cloud Storage, Pub/Sub, BigQuery, or Cloud Logging with filters and exclusions. |
 | `modules/gcp/iam-custom-role` | Google Cloud custom IAM roles at organization or project level. |
 | `modules/gcp/cloud-sql` | Google Cloud SQL PostgreSQL/MySQL instances with optional read replicas. |
+| `modules/gcp/firestore` | Google Cloud Firestore databases (native, Datastore mode, editions) with CMEK and delete protection. |
 | `modules/gcp/alloydb` | Google Cloud AlloyDB clusters with instances, automated/continuous backup config, and on-demand backups. |
 | `modules/gcp/bigquery` | Google BigQuery datasets with IAM bindings and nested tables (partitioning, clustering, views, external data). |
 | `modules/gcp/spanner` | Google Cloud Spanner instances with databases, CMEK encryption, autoscaling, and IAM bindings. |
@@ -161,6 +162,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/dns-record-sets` | Google Cloud DNS resource record sets in a single managed zone, with weighted/geo/primary-backup routing policies. |
 | `modules/gcp/eventarc` | Google Cloud Eventarc standalone triggers delivering to Cloud Run, GKE, Workflows, or HTTP endpoints. |
 | `modules/gcp/cloud-run` | Google Cloud Run services with optional IAM bindings. |
+| `modules/gcp/cloud-run-jobs` | Google Cloud Run jobs with optional IAM bindings. |
 | `modules/gcp/cloud-build` | Google Cloud Build triggers with inline or repo-defined builds and manual approval gates. |
 | `modules/gcp/cloud-functions` | Google Cloud Functions (2nd gen) with build/service/event-trigger config and optional IAM bindings. |
 | `modules/gcp/dataproc` | Google Cloud Dataproc clusters with GCE cluster config and IAM bindings. |
