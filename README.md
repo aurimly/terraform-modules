@@ -9,9 +9,11 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/cloudflare/zone` | Cloudflare zones and granular zone settings. |
 | `modules/cloudflare/dns-records` | Cloudflare DNS records in a single zone. |
 | `modules/cloudflare/worker-domains` | Cloudflare Workers custom domains. |
-| `modules/cloudflare/r2_bucket` | Cloudflare R2 buckets with location, jurisdiction, and storage class. |
+| `modules/cloudflare/r2_bucket` | Cloudflare R2 buckets with location, jurisdiction, storage class, lifecycle rules, CORS, custom domains, and r2.dev access. |
 | `modules/cloudflare/workers_script` | Cloudflare Worker records (observability, subdomain, tags, tail consumers); script content stays with wrangler. |
 | `modules/cloudflare/workers_route` | Cloudflare Workers routes attaching URL patterns to Worker scripts. |
+| `modules/cloudflare/workers-kv` | Cloudflare Workers KV namespaces (classic and KV Instant); key/value content stays out of scope. |
+| `modules/cloudflare/pages` | Cloudflare Pages projects: build config, git source, deployment configs, and custom domains. |
 | `modules/cloudflare/tunnel` | Cloudflare Tunnels (cloudflared) with tunnel routes and optional remote ingress config. |
 | `modules/cloudflare/load-balancer` | Cloudflare load balancers with health monitors, origin pools, and failover/steering wiring. |
 | `modules/cloudflare/ruleset` | Cloudflare zone rulesets: WAF custom rules, rate limiting, transforms, redirects, and origin overrides. |
