@@ -25,6 +25,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/github/repository` | GitHub repository settings and branch protection. |
 | `modules/github/branch-protection` | GitHub branch protection for existing repositories. |
 | `modules/github/team` | GitHub teams with nested membership and parent-team wiring. |
+| `modules/github/membership` | GitHub organization membership with member/admin roles. |
+| `modules/github/repo-access` | GitHub repository access for teams and users per repository. |
 | `modules/github/actions-secrets` | GitHub Actions repository secrets keyed by secret name. |
 | `modules/github/actions-variables` | GitHub Actions repository variables keyed by variable name. |
 | `modules/github/actions-organization-secrets` | GitHub Actions organization secrets with visibility and per-secret repository allow-lists. |
