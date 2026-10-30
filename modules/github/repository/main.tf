@@ -19,6 +19,7 @@ resource "github_repository" "repo" {
   has_projects           = each.value.has_projects
   delete_branch_on_merge = each.value.delete_branch_on_merge
   archived               = each.value.archived
+  vulnerability_alerts   = each.value.vulnerability_alerts
   archive_on_destroy     = true
 }
 

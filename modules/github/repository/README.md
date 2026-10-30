@@ -25,6 +25,7 @@ The provider reads `GITHUB_TOKEN` (classic PAT with `repo` scope) and
 | `has_projects` | `bool` | `false` | Projects enabled. |
 | `delete_branch_on_merge` | `bool` | `true` | Delete head branches on merge. |
 | `archived` | `bool` | `false` | Archive the repo. |
+| `vulnerability_alerts` | `bool` | — | Dependabot alerts. Unset (`null`) leaves the repo's current setting unmanaged. |
 | `branch_protection` | `object` | — | Optional branch protection. |
 
 ### `branch_protection` object

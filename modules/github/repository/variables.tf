@@ -9,6 +9,7 @@ variable "repositories" {
     has_projects           = optional(bool, false)
     delete_branch_on_merge = optional(bool, true)
     archived               = optional(bool, false)
+    vulnerability_alerts   = optional(bool)
     branch_protection = optional(object({
       branch         = optional(string, "main")
       enforce_admins = optional(bool, true)
