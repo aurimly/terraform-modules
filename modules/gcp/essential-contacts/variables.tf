@@ -1,5 +1,5 @@
 variable "contacts" {
-  description = "Map of essential contacts keyed by an arbitrary identifier (typically the notification category). Each entry creates one google_essential_contacts_contact at the parent (organization, folder or project). Categories must be unique across entries — the API allows one contact per category."
+  description = "Map of essential contacts keyed by an arbitrary identifier (typically the notification category). Each entry creates one google_essential_contacts_contact at the parent (organization, folder or project). Emails must be unique across entries — the API allows one contact per (parent, email); carry multiple categories on a single contact row."
   type = map(object({
     email                               = string
     parent                              = string
@@ -41,10 +41,10 @@ variable "contacts" {
     condition = alltrue(flatten([
       for ka, a in var.contacts : [
         for kb, b in var.contacts :
-        ka == kb || length(setintersection(a.notification_category_subscriptions, b.notification_category_subscriptions)) == 0
+        ka == kb || a.email != b.email
       ]
     ]))
-    error_message = "notification_category_subscriptions must not repeat across entries; the API allows only one contact per category."
+    error_message = "emails must not repeat across entries; the API allows only one contact per (parent, email) — a second entry with the same address 409s with \"There is already a contact with the given email address… use UpdateContact instead\"."
   }
 
   validation {

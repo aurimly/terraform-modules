@@ -3,7 +3,9 @@
 Map-keyed module for Google Cloud essential contacts. Each entry creates one
 `google_essential_contacts_contact` at the given parent — organization,
 folder, or project — subscribed to one or more notification categories.
-The API allows one contact per category; entries must not repeat categories.
+The API allows **one contact per (parent, email)**; carry several categories
+on one contact row (the API rejects a second contact with the same email and
+points to UpdateContact for new subscriptions).
 
 ## Auth
 
@@ -25,7 +27,7 @@ in the provider configuration; the Essential Contacts API 403s otherwise
 |---|---|---|---|
 | `email` | `string` | — | Notification recipient. Does not need to be a Google account. |
 | `parent` | `string` | — | `organizations/{numeric id}`, `folders/{numeric id}` or `projects/{project_id}`. |
-| `notification_category_subscriptions` | `list(string)` | — | Non-empty subset of `ALL`, `BILLING`, `LEGAL`, `SECURITY`, `SUSPENSION`, `TECHNICAL`. Unique across entries; `ALL` cannot combine with others. |
+| `notification_category_subscriptions` | `list(string)` | — | Non-empty subset of `ALL`, `BILLING`, `LEGAL`, `SECURITY`, `SUSPENSION`, `TECHNICAL`. `ALL` cannot combine with others. |
 | `language_tag` | `string` | `"en"` | Preferred notification language (ISO 639-1). |
 | `deletion_policy` | `string` | `"PREVENT"` | `DELETE` destroys the contact with the unit; `ABANDON` removes it from state and leaves it live; `PREVENT` fails any removal path — flip to `ABANDON`, apply, then drop the entry. |
 
@@ -44,15 +46,10 @@ equivalent).
 
 ```hcl
 contacts = {
-  "security" = {
+  "admin" = {
     email                               = "sec@example.com"
     parent                              = "organizations/123456789012"
-    notification_category_subscriptions = ["SECURITY"]
-  }
-  "technical" = {
-    email                               = "ops@example.com"
-    parent                              = "organizations/123456789012"
-    notification_category_subscriptions = ["TECHNICAL"]
+    notification_category_subscriptions = ["SECURITY", "TECHNICAL", "BILLING"]
   }
 }
 ```
