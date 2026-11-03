@@ -55,6 +55,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/aws/vpc-endpoints` | AWS VPC endpoints (gateway and interface) with route-table/subnet wiring, endpoint policies, private DNS options, and S3 multi-VPCE support. |
 | `modules/aws/security-group` | AWS security groups with separate ingress and egress rule resources. |
 | `modules/aws/iam-role` | AWS IAM roles with trust policies, managed and inline policies, and optional instance profiles. |
+| `modules/aws/iam-user` | AWS IAM users with group memberships, managed and inline policies, and optional access keys. |
+| `modules/aws/iam-group` | AWS IAM groups with managed and inline policies; membership is managed on the user side. |
 | `modules/aws/ec2-instance` | AWS EC2 instances with AMI via SSM lookup, EBS volumes, and instance profile pass-through. |
 | `modules/aws/s3-bucket` | AWS S3 buckets with versioning, SSE, public access block, ownership controls, lifecycle, object lock, replication, and notifications. |
 | `modules/aws/dynamodb` | AWS DynamoDB tables with capacity modes, secondary indexes, streams, TTL, PITR, SSE, and deletion protection. |
