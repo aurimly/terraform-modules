@@ -81,6 +81,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/aws/route53-resolver` | AWS Route 53 Resolver endpoints (inbound, outbound, inbound-delegation), forward/system/recursive rules, and DNSSEC validation configs. |
 | `modules/aws/transit-gateway` | AWS Transit Gateway: gateways, route tables, VPC and peering attachments with accepters, and static routes. |
 | `modules/aws/eventbridge` | AWS EventBridge event buses with policies, rules and targets, Scheduler schedules with retry/flex-window options, and archives. |
+| `modules/aws/step-functions` | AWS Step Functions state machines (Standard and Express) with logging, tracing, encryption and optional version publishing, plus worker activities. |
 | `modules/aws/api-gateway` | AWS API Gateway HTTP APIs (v2): routes, integrations, JWT authorizers, stages, and custom domain mappings. |
 | `modules/aws/waf` | AWS WAFv2 web ACLs (CLOUDFRONT and REGIONAL scope) with IP sets, rate-based and managed rules, rule groups, and REGIONAL resource associations. |
 | `modules/azure/subscription` | Azure subscriptions via the Alias API: new subscriptions under EA/MCA/MPA billing scopes, or adopting existing subscriptions. |
