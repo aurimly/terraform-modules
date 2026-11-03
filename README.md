@@ -52,6 +52,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/aws/vpc` | AWS VPCs with DNS settings, tenancy, IPAM IPv4 and generated IPv6 CIDRs. |
 | `modules/aws/subnet` | AWS VPC subnets with IPv4/IPv6 CIDRs, AZ allocation, and public-IP assignment. |
 | `modules/aws/nat` | AWS NAT gateways with optional elastic IPs, public or private connectivity. |
+| `modules/aws/vpc-endpoints` | AWS VPC endpoints (gateway and interface) with route-table/subnet wiring, endpoint policies, private DNS options, and S3 multi-VPCE support. |
 | `modules/aws/security-group` | AWS security groups with separate ingress and egress rule resources. |
 | `modules/aws/iam-role` | AWS IAM roles with trust policies, managed and inline policies, and optional instance profiles. |
 | `modules/aws/ec2-instance` | AWS EC2 instances with AMI via SSM lookup, EBS volumes, and instance profile pass-through. |
