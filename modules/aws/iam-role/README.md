@@ -15,8 +15,8 @@ policy attachments, inline policies, and an instance profile are optional.
 
 | Attribute | Type | Default | Description |
 |---|---|---|---|
-| `name` | `string` | — | Role name; at most 64 characters, letters/digits/`+=,.@_-`. Validated client-side. Immutable; changing forces replacement. The instance profile (if enabled) reuses this name. |
-| `path` | `string` | — | IAM path, e.g. `/service/`. Immutable; changing forces replacement. Also applied to the instance profile. |
+| `name` | `string` | — | Role name; at most 64 characters, letters/digits/`+=,.@_-`. Validated client-side. Unique account-wide regardless of `path`, not distinguished by case. Immutable; changing forces replacement. The instance profile (if enabled) reuses this name. |
+| `path` | `string` | — | IAM path, e.g. `/service/`. Changing the path moves the role in place (no replacement); the same change applies to the instance profile. |
 | `description` | `string` | — | Role description. |
 | `max_session_duration` | `number` | `3600` | Maximum session duration (seconds) for assumed-role sessions, 3600-43200. Validated client-side. |
 | `permissions_boundary` | `string` | — | ARN of a managed policy used as the permissions boundary. |
@@ -108,9 +108,10 @@ attribute of the `aws/ec2-instance` module.
 
 ## Notes
 
-- Map keys are arbitrary unique identifiers, not resource names — multiple
-  roles can share a `name` (e.g. identical role names under different
-  `path`s), so the key disambiguates them.
+- Map keys are arbitrary unique identifiers that decouple the key set from
+  the names — but role names themselves must be unique account-wide
+  regardless of `path` (AWS friendly names are unique within the account),
+  and are not distinguished by case.
 - The trust policy is a single statement with `Action = "sts:AssumeRole"`.
   Policies needing multiple statements or not-allow effects should use
   `trust_policy_json` instead.
@@ -119,14 +120,13 @@ attribute of the `aws/ec2-instance` module.
   from the input destroys exactly that attachment/policy, not the role.
 - The instance profile name is the role name, so the role `name` character
   set and 64-character limit also apply to it — enforced client-side.
-- `name` and `path` force role replacement if changed; everything else,
-  including the trust policy, updates in place.
+- `name` forces role replacement if changed; everything else, including the
+  trust policy and `path`, updates in place.
 
 ## Import
 
-`aws_iam_role` — role name; roles created under a non-default `path` may
-need the path-qualified form (`path/name`) depending on the provider
-version.
+`aws_iam_role` — role name (the provider import identity uses the plain
+name, regardless of `path`).
 `aws_iam_role_policy_attachment` — `role_name/policy_arn` (slash-separated).
 `aws_iam_role_policy` — `role_name:policy_name` (colon-separated).
 `aws_iam_instance_profile` — instance profile name.
