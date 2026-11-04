@@ -255,6 +255,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/stackit/server_volume_attach` | STACKIT attachments of existing volumes to servers. |
 | `modules/stackit/server_network_interface_attach` | STACKIT attachments of network interfaces to servers, effective after reboot. |
 | `modules/stackit/server_service_account_attach` | STACKIT attachments of service accounts to servers. |
+| `modules/snowflake/resource-monitor` | Snowflake resource monitors: credit quotas with notify and suspend triggers; warehouse or consumer-side account attachment. |
+| `modules/snowflake/alert` | Snowflake alerts in a database/schema: condition and action SQL, interval or cron schedules. Provider preview feature. |
+| `modules/snowflake/email-notification-integration` | Snowflake email notification integrations for SQL-driven sends (`SYSTEM$SEND_EMAIL`). Provider preview feature. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 
