@@ -258,6 +258,11 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/snowflake/resource-monitor` | Snowflake resource monitors: credit quotas with notify and suspend triggers; warehouse or consumer-side account attachment. |
 | `modules/snowflake/alert` | Snowflake alerts in a database/schema: condition and action SQL, interval or cron schedules. Provider preview feature. |
 | `modules/snowflake/email-notification-integration` | Snowflake email notification integrations for SQL-driven sends (`SYSTEM$SEND_EMAIL`). Provider preview feature. |
+| `modules/snowflake/warehouse` | Snowflake warehouses with sizes, multi-cluster config, query acceleration, and resource-monitor attachment. |
+| `modules/snowflake/account-role` | Snowflake account roles; pair with the grant modules. |
+| `modules/snowflake/role-grant` | Snowflake account-role grants to users and parent roles (role hierarchy edges). |
+| `modules/snowflake/grant-privileges` | Snowflake privilege grants to account roles: account, account-object, schema-level and schema-object targets incl. all/future/inherited. |
+| `modules/snowflake/user` | Snowflake users: identity, key-pair auth, session defaults, lifecycle. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 
