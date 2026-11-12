@@ -263,6 +263,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/snowflake/role-grant` | Snowflake account-role grants to users and parent roles (role hierarchy edges). |
 | `modules/snowflake/grant-privileges` | Snowflake privilege grants to account roles: account, account-object, schema-level and schema-object targets incl. all/future/inherited. |
 | `modules/snowflake/user` | Snowflake users: identity, key-pair auth, session defaults, lifecycle. |
+| `modules/snowflake/database` | Snowflake databases: retention, transient mode, replication/failover enablement to secondary accounts. |
+| `modules/snowflake/schema` | Snowflake schemas inside existing databases: managed access, transient, retention. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 
