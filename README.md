@@ -19,6 +19,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/cloudflare/ruleset` | Cloudflare zone rulesets: WAF custom rules, rate limiting, transforms, redirects, and origin overrides. |
 | `modules/cloudflare/access` | Cloudflare Zero Trust Access: identity providers, reusable policies, and applications. |
 | `modules/cloudflare/origin-ca-certificate` | Cloudflare Origin CA certificates issued from a CSR. |
+| `modules/cloudflare/notifications` | Cloudflare notification policies with webhook destinations and email/PagerDuty mechanisms. |
 | `modules/ns1/zone` | NS1 zones: primary, linked, secondary with TSIG, DNSSEC. |
 | `modules/ns1/record` | NS1 DNS records with filter chains, regions, and answers. |
 | `modules/ns1/redirect` | NS1 URL redirects. |
