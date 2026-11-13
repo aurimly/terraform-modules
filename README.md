@@ -275,6 +275,11 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/snowflake/user` | Snowflake users: identity, key-pair auth, session defaults, lifecycle. |
 | `modules/snowflake/database` | Snowflake databases: retention, transient mode, replication/failover enablement to secondary accounts. |
 | `modules/snowflake/schema` | Snowflake schemas inside existing databases: managed access, transient, retention. |
+| `modules/snowflake/table` | Snowflake tables with ordered columns, defaults/identity, clustering, and change tracking. Provider preview feature. |
+| `modules/snowflake/view` | Snowflake views defined by SELECT statements, with secure/recursive modes, column aliases, and copy_grants on recreation. |
+| `modules/snowflake/task` | Snowflake tasks with schedules or DAG wiring via after/finalize, serverless sizing, and config JSON. |
+| `modules/snowflake/stream` | Snowflake streams on tables (append-only, Time Travel anchors, copy_grants) feeding task conditions. |
+| `modules/snowflake/pipe` | Snowflake pipes around COPY statements, with SNS/notification-integration auto-ingest and Snowpipe Streaming support. Provider preview feature. |
 
 All modules are map-keyed. Pin with `?ref=vX.Y.Z` at the consumer side.
 
