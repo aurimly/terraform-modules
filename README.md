@@ -125,6 +125,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/azure/container-app` | Azure Container Apps with containers, probes, scale rules, volumes, ingress, secrets, registries, Dapr, and managed identities. |
 | `modules/azure/monitor` | Azure Monitor action groups, metric alerts, activity log alerts, scheduled query rules, and diagnostic settings. |
 | `modules/azure/web-application-firewall` | Azure Web Application Firewall policies with managed and custom rules, exclusions, and log scrubbing. |
+| `modules/azure/route-table` | Azure route tables with user-defined routes as separate route resources (CIDR/service-tag prefixes, next-hop types, BGP propagation control). |
+| `modules/azure/route-table-association` | Azure subnet-to-route-table associations for custom egress routing. |
+| `modules/azure/virtual-network-peering` | Azure virtual network peerings (one direction per entry) with gateway transit, forwarded-traffic, and subnet peering options. |
 | `modules/gcp/folder` | Google Cloud folders under an organization or parent folder. |
 | `modules/gcp/folder-iam` | Google Cloud folder IAM: members, bindings, policy, and audit configs. |
 | `modules/gcp/project` | Google Cloud projects. |
