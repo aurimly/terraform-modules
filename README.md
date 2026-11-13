@@ -20,6 +20,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/cloudflare/access` | Cloudflare Zero Trust Access: identity providers, reusable policies, and applications. |
 | `modules/cloudflare/origin-ca-certificate` | Cloudflare Origin CA certificates issued from a CSR. |
 | `modules/cloudflare/notifications` | Cloudflare notification policies with webhook destinations and email/PagerDuty mechanisms. |
+| `modules/cloudflare/d1` | Cloudflare D1 databases with jurisdiction, location hint, and read replication. |
+| `modules/cloudflare/queues` | Cloudflare Queues with settings and consumers (worker, HTTP pull, notification) keyed to in-module queues. |
+| `modules/cloudflare/turnstile` | Cloudflare Turnstile widgets with modes, domains, and clearance levels. |
+| `modules/cloudflare/email-routing` | Cloudflare Email Routing rules and per-zone catch-all rules. |
 | `modules/ns1/zone` | NS1 zones: primary, linked, secondary with TSIG, DNSSEC. |
 | `modules/ns1/record` | NS1 DNS records with filter chains, regions, and answers. |
 | `modules/ns1/redirect` | NS1 URL redirects. |
