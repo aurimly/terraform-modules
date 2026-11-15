@@ -44,6 +44,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/equinix/fabric_connection` | Equinix Fabric connections: port, cloud router, virtual device, service token, and service-provider endpoints. |
 | `modules/hetzner/network` | Hetzner Cloud networks with RFC1918 ranges, labels, and vSwitch route exposure. |
 | `modules/hetzner/zone` | Hetzner Cloud DNS zones, primary or secondary, with primary nameservers and TSIG. |
+| `modules/hetzner/zone_record` | Hetzner Cloud DNS records in a zone by name or ID, map-keyed, with TXT quoting helper and identity import. |
 | `modules/hetzner/floating_ip` | Hetzner Cloud floating IPs with home location or server assignment. |
 | `modules/hetzner/firewall` | Hetzner Cloud firewalls with rules and server/label-selector attachments. |
 | `modules/hetzner/placement_group` | Hetzner Cloud placement groups (spread) with labels. |
