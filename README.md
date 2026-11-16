@@ -24,6 +24,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/cloudflare/queues` | Cloudflare Queues with settings and consumers (worker, HTTP pull, notification) keyed to in-module queues. |
 | `modules/cloudflare/turnstile` | Cloudflare Turnstile widgets with modes, domains, and clearance levels. |
 | `modules/cloudflare/email-routing` | Cloudflare Email Routing rules and per-zone catch-all rules. |
+| `modules/cloudflare/custom-hostname` | Cloudflare SSL for SaaS custom hostnames with SSL configuration and a per-zone fallback origin. |
+| `modules/cloudflare/snippets` | Cloudflare Snippets with file-based JS content and ordered zone snippet rules. |
+| `modules/cloudflare/waiting-room` | Cloudflare Waiting Rooms with queueing configuration, cookie attributes, and per-room events. |
 | `modules/ns1/zone` | NS1 zones: primary, linked, secondary with TSIG, DNSSEC. |
 | `modules/ns1/record` | NS1 DNS records with filter chains, regions, and answers. |
 | `modules/ns1/redirect` | NS1 URL redirects. |
