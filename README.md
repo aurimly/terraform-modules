@@ -145,6 +145,7 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/essential-contacts` | Google Cloud essential contacts at the organization, folder, or project level, with notification-category subscriptions. |
 | `modules/gcp/service-account` | Google Cloud service accounts. |
 | `modules/gcp/service-account-iam` | Google Cloud service account IAM: members, bindings, and policies. |
+| `modules/gcp/service-account-key` | Google Cloud service account keys (credentials JSON) for existing service accounts. |
 | `modules/gcp/bucket` | Google Cloud Storage buckets with optional IAM bindings. |
 | `modules/gcp/billing-budget` | Google Cloud billing budgets with threshold and notification rules. |
 | `modules/gcp/project-services` | Google Cloud project API (service) enablement. |
@@ -207,6 +208,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/gcp/vertex-ai-dataset` | Google Cloud Vertex AI datasets with CMEK encryption and labels. |
 | `modules/gcp/vertex-ai-index` | Google Cloud Vertex AI Vector Search indexes (batch/stream update, tree-AH or brute force, CMEK). |
 | `modules/gcp/vertex-ai-index-endpoint` | Google Cloud Vertex AI Vector Search index endpoints (PSA/PSC/public) with deployed indexes. |
+| `modules/gcp/api-gateway` | Google Cloud API Gateway: APIs, API configs (OpenAPI/gRPC specs), and gateways. |
+| `modules/gcp/tags` | Google Cloud resource-manager tags: tag keys and values under an organization or project. |
 | `modules/stackit/folder` | STACKIT Resource Manager folders under an organization or parent folder. |
 | `modules/stackit/project` | STACKIT Resource Manager projects under an organization or folder. |
 | `modules/stackit/organization_role_assignment` | STACKIT authorization role assignments on an organization. |
