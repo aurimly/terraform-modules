@@ -58,6 +58,10 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/hetzner/certificate` | Hetzner Cloud TLS certificates: Hetzner-managed by domain names or uploaded PEM certificates with private keys. |
 | `modules/hetzner/primary_ip` | Hetzner Cloud primary IPs, unassigned in a location or assigned to a server. |
 | `modules/hetzner/rdns` | Hetzner Cloud reverse DNS entries for servers, primary IPs, floating IPs, and load balancers. |
+| `modules/akamai/property` | Akamai properties: rule trees via JSON, hostnames with certificate provisioning type, and optional staging/production activations. |
+| `modules/akamai/waf` | Akamai AppSec (KSD): security configurations and policies, hostname match targets, WAF rulesets, rate policies with actions, slow POST, and activations. |
+| `modules/akamai/network-lists` | Akamai network lists (IP/GEO) with entry management and staging/production activations. |
+| `modules/akamai/client-lists` | Akamai client lists (IP, GEO, ASN, and more) with item management and staging/production activations. |
 | `modules/aws/vpc` | AWS VPCs with DNS settings, tenancy, IPAM IPv4 and generated IPv6 CIDRs. |
 | `modules/aws/subnet` | AWS VPC subnets with IPv4/IPv6 CIDRs, AZ allocation, and public-IP assignment. |
 | `modules/aws/nat` | AWS NAT gateways with optional elastic IPs, public or private connectivity. |
