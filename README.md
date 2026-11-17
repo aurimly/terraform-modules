@@ -58,6 +58,8 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/hetzner/certificate` | Hetzner Cloud TLS certificates: Hetzner-managed by domain names or uploaded PEM certificates with private keys. |
 | `modules/hetzner/primary_ip` | Hetzner Cloud primary IPs, unassigned in a location or assigned to a server. |
 | `modules/hetzner/rdns` | Hetzner Cloud reverse DNS entries for servers, primary IPs, floating IPs, and load balancers. |
+| `modules/akamai/dns-zone` | Akamai Edge DNS zones: primary, secondary with TSIG, alias zones, sign-and-serve, and outbound zone transfer. |
+| `modules/akamai/dns-record` | Akamai Edge DNS records in a single zone, map-keyed, with TXT quoting validation. |
 | `modules/akamai/property` | Akamai properties: rule trees via JSON, hostnames with certificate provisioning type, and optional staging/production activations. |
 | `modules/akamai/waf` | Akamai AppSec (KSD): security configurations and policies, hostname match targets, WAF rulesets, rate policies with actions, slow POST, and activations. |
 | `modules/akamai/network-lists` | Akamai network lists (IP/GEO) with entry management and staging/production activations. |
