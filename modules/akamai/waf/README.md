@@ -263,6 +263,7 @@ The Akamai provider authenticates with EdgeGrid credentials — an `~/.edgerc` f
 - The rate-action regex is deliberately stricter than the provider validator (which accepts any suffix after the custom-action prefixes): this module requires alphanumeric/underscore suffixes. Values the provider accepts but the module rejects are not API-valid actions.
 - The `security_policy_prefix` shape and the IP/Geo-scope exclusions are module policy; the API is the final arbiter.
 - The provider floor `>= 12.0.0` is a loose floor; exact pinning is done at the consumer's unit level.
+- Terraform/OpenTofu floor: the map cross-reference validations (every `config_key`/`policy_key`/`rate_policy_key` check) reference other variables, a 1.9+ variable-validation feature, and the module declares `required_version = ">= 1.9.0"` accordingly. Older cores fail at `init` with a version error instead of `Invalid reference in variable validation` errors.
 
 ## Import
 
