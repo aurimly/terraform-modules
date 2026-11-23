@@ -45,6 +45,9 @@ Reusable OpenTofu/Terraform modules maintained and offered by [xtralinux.com](ht
 | `modules/github/deploy-key` | GitHub repository deploy keys with read-only flag. |
 | `modules/equinix/fabric_cloud_router` | Equinix Fabric Cloud Routers (FCR). |
 | `modules/equinix/fabric_connection` | Equinix Fabric connections: port, cloud router, virtual device, service token, and service-provider endpoints. |
+| `modules/equinix/fabric_service_token` | Equinix Fabric service tokens (A-side/Z-side) for inviting remote connections. |
+| `modules/equinix/fabric_routing_protocol` | Equinix Fabric routing protocols on connections: direct and BGP with BFD, MED and AS-prepend. |
+| `modules/equinix/fabric_route_aggregation` | Equinix Fabric route aggregations with rules and connection attachments. |
 | `modules/hetzner/network` | Hetzner Cloud networks with RFC1918 ranges, labels, and vSwitch route exposure. |
 | `modules/hetzner/zone` | Hetzner Cloud DNS zones, primary or secondary, with primary nameservers and TSIG. |
 | `modules/hetzner/zone_record` | Hetzner Cloud DNS records in a zone by name or ID, map-keyed, with TXT quoting helper and identity import. |
